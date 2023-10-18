@@ -123,6 +123,7 @@ form > button{
     color: white;
     padding: 10px;
     border-radius: 10px;
+    border-color: transparent!important;
 }
 
 form > span#email,
@@ -142,6 +143,11 @@ form > span > label{
     top: 50%;
     transform: translateY(-50%);
     margin-left: 3%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
 
 div#two > #btn-fquestion{
