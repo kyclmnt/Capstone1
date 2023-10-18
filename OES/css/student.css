@@ -7,6 +7,7 @@
     font-family:Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
+
 main{
     height: 100%;
     width:100%;
@@ -21,6 +22,7 @@ body{
     height: 100vh;
     width: 100vw;
 }
+
 header{
     background-color: #8d2826;
     color: white;
@@ -40,6 +42,7 @@ div#logo-holder{
     align-items: center;
     gap: 15px;
 }
+
 nav {
     display:flex;
     flex-direction: row;

@@ -7,6 +7,7 @@
     font-family:Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
+
 main{
     height: 100%;
     width:100%;
@@ -21,6 +22,7 @@ body{
     height: 100vh;
     width: 100vw;
 }
+
 header{
     background-color: #8d2826;
     color: white;
@@ -40,6 +42,7 @@ div#logo-holder{
     align-items: center;
     gap: 15px;
 }
+
 nav {
     display:flex;
     flex-direction: row;
@@ -68,6 +71,7 @@ a:hover {
     color: black;
     background-color: transparent;
 } */
+
 h1 {
     color: #8d2826;
     font-family: 'Times New Roman', Times, serif;
@@ -75,20 +79,21 @@ h1 {
     font-size: 25px;
     /* padding-top: 20px; */
 }
+
 .setting {
     /* padding-bottom: 250px;  */
     /* padding-left: 80px; */
     /* line-height: 2.0; */
     font-size: 18px;
     float: right;
-    
-
 }
+
 a:link.btn-account{
     color: black;
     background-color: transparent;
     line-height: 2rem;
 }
+
 a:hover.btn-account{
     color: black;
     background-color: #c26261;
@@ -98,20 +103,24 @@ a:hover.btn-account{
     padding-top: 5px;
     padding-bottom: 5px; */
 }
+
 a:active.btn-account {
     color: #c26261;
     background-color: transparent;
 }
+
 a:visited.btn-account {
     color: black;
     background-color: #c26261;
 }
+
 .account > p{
     /* padding-left: 400px; */
     font-family: 'Times New Roman', Times, serif;
     font-size:25px;
     /* padding-bottom: 10px; */
 }
+
 .account{
     /* margin-left: 350px; */
     width:58%;
@@ -148,17 +157,20 @@ a:visited.btn-account {
     place-items: center;
     gap: 10px;
 }
+
 .account > form > span:last-of-type{
     /* display:flex;
     justify-content: flex-end; */
     place-items: end;
     padding-right: 10%;
 }
+
 input {
     padding: 60px;
     letter-spacing: 1px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 input[type=text], select {
     width: 80%;
     padding: 12px 20px;
@@ -168,6 +180,7 @@ input[type=text], select {
     border-radius: 15px;
     /* box-sizing: border-box; */
 }
+
 input[type=submit] {
     width: 20%;
     background-color: #8d2826;
@@ -178,13 +191,13 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     /* justify-self: flex-end; */
-  }
+}
   
-  input[type=submit]:hover {
+input[type=submit]:hover {
     background-color: #c26261;
     color: white;
+}
 
-  }
 label{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
