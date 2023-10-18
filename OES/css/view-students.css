@@ -1,0 +1,9 @@
+div{
+    display:flex;
+    flex-direction: row ;
+}
+
+td,
+th{
+    border: 1px solid maroon !important;
+}
