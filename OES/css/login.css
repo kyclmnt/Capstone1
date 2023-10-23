@@ -167,3 +167,7 @@ div#two > #btn-fquestion{
     margin: 10px;
     border: none;
 }
+
+span.error{
+    color: red;
+}

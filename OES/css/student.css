@@ -70,3 +70,51 @@ td,
 th{
     border: 1px solid maroon !important;
 }
+
+h1 {
+    color: #8d2826;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+    font-size: 25px;
+    /* padding-top: 20px; */
+}
+
+.students {
+    /* padding-bottom: 250px;  */
+    /* padding-left: 80px; */
+    /* line-height: 2.0; */
+    font-size: 18px;
+    float: right;
+}
+
+a:link.btn-account{
+    color: black;
+    background-color: transparent;
+    line-height: 2rem;
+}
+
+a:hover.btn-account{
+    color: black;
+    background-color: #c26261;
+    opacity: 0.5;
+    /* padding-left: 10px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+a:active.btn-account {
+    color: #c26261;
+    background-color: transparent;
+}
+
+a:visited.btn-account {
+    color: black;
+    background-color: #c26261;
+}
+section{
+    display:flex;
+    padding-top:20px;
+    column-gap: 10%;
+    /* align-items: center; */
+}
