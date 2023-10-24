@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/student.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"</script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
     crossorigin="anonymous"></script>
@@ -34,12 +34,15 @@
                 <h1>
                     STUDENTS
                 </h1>   
-                <a class="btn btn-account" href="" role="button"><i class="fa-regular fa-file"></i>View Students</a><br>
-                <a class="btn btn-account" href="" role="button"><i class="fa-solid fa-trash-can"></i>Delete students</a><br>
+                <a class="btn btn-account" href="" role="button"><i class="fa-regular fa-file"></i>View Students</a>
+                <a class="btn btn-account" href="" role="button"><i class="fa-solid fa-trash-can"></i>Delete Students</a>
                 </i>
             </div>
 
-            <div>
+            <div style="flex-grow: 1;" id="view-students">
+                <h1>
+                    View Students
+                </h1>
                 <table id="table">
                     <thead>
                         <tr>
@@ -88,10 +91,11 @@
                         </tr>
                     </tbody>
                 </table>
-                <script>
-                    $("#table").DataTable();
-                </script>
             </div>
     </main>
 </body>
 </html>
+
+<script>
+    $("#table").DataTable();
+</script>

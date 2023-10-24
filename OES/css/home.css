@@ -1,14 +1,21 @@
 header{
     display: flex;
     justify-content: start;
-    gap: 10px
+    gap: 10px;
+    background-color: maroon;
+    color: white;
+    margin: none;
+    border: none;
     
 }
 h3{
     font-size: x-large;
     color:black;
 }
-
+img{
+    width:35px;
+    height:35px;
+}
 #req{
     border-radius: 15px;
     padding: 0.25rem;
