@@ -1,0 +1,130 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+h3{
+    font-size: 35px;
+    color:black;
+}
+
+#en{
+    display: flex;
+    justify-content: center;
+    padding: 10px
+}
+
+#login{
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: medium;
+    margin-right: 1rem;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-radius: 8px;
+    padding: 70px ;   
+}
+
+#btn {
+
+    display:flex;
+    justify-content: space-evenly;
+    width: 100%;    
+    flex-wrap: wrap;
+
+    gap: 30px;
+}
+#btn > span {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+#btn > span > * {
+    margin: 0 auto;
+    text-decoration: none;
+    width: fit-content;
+    text-align: center;
+    border: 1px solid white !important;
+    padding: 10px 20px !important;
+    border-radius: 20px;
+    color: white;
+    background-color:#922B21;
+}
+
+
+
+
+
+/* ALLY */
+/* header{
+    display: flex;
+    justify-content: start;
+    gap: 10px
+    
+}
+
+
+h3{
+    font-size: x-large;
+    color:black;
+}
+
+#req{
+    border-radius: 15px;
+    padding: 0.25rem;
+    color: white;
+    background-color:#922B21;
+    padding: 10px;
+}
+
+#off{
+    border-radius: 15px;
+    padding: 0.25rem;
+    color: white;
+    background-color:#922B21;
+    padding: 10px;
+}
+
+#en{
+    border-radius: 15px;
+    padding: 0.25rem;
+    color: white;
+    background-color:#922B21;
+    border: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-radius: 8px;
+    padding: 50px ;   
+}
+
+#btn{
+    display:flex;
+    justify-content: space-evenly;
+    width: 100%;    
+}
+
+.btn-border{
+    border: 1px solid white !important;
+    padding: 5px 20px !important;
+} */
+

@@ -1,0 +1,12 @@
+.btn-grd{
+    border: 3px solid maroon;
+    padding: 13px;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: medium;
+}
+
+form > .btn-grd{
+    width: 40%;
+    display: inline-block;
+}

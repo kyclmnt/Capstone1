@@ -1,0 +1,148 @@
+
+.students {
+    /* padding-bottom: 250px;  */
+    /* padding-left: 80px; */
+    /* line-height: 2.0; */
+    font-size: 18px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.students a{
+    margin-left: 8px;
+    font-size: 15px;
+}
+
+#view-students{
+    display: flex ;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+a:link.btn-account{
+    color: black;
+    background-color: transparent;
+    line-height: 2rem;
+}
+
+a:hover.btn-account{
+    color: black;
+    background-color: #c26261;
+    opacity: 0.5;
+    /* padding-left: 10px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+a:active.btn-account {
+    color: #c26261;
+    background-color: transparent;
+}
+
+a:visited.btn-account {
+    color: black;
+    background-color: #c26261;
+}
+main > section{
+    display:flex;
+    padding-top:20px;
+    column-gap: 10%;
+    height:100%;
+    /* align-items: center; */
+    width: 60% !important;
+}
+
+footer{
+    background-color: #8d2826;
+    color: white;
+    letter-spacing: 2px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.50rem;
+}
+
+form {
+    width: 100%;
+}
+#form-body {
+    width: 100% !important;
+}
+#form-body > section{
+    display: flex;
+    flex-direction: column;
+}
+#form-body section div > span:nth-of-type(1) {
+    min-width: 50% !important;
+}
+#form-body span, #form-body input[type="text"]{
+    padding: 5px;
+}
+#form-body > span{
+    display: block;
+}
+#form-body section > div {
+    display: flex;
+    justify-content: space-between;
+    
+}
+#form-body section {
+    border: 2px solid maroon;   
+}
+
+#form-body section > div > div,
+#form-body section > div > span,
+#form-body section > div > input[type="text"] {
+    width: 50%;
+    border: 2px solid maroon;
+}
+#form-body section > div > span,
+#form-body section > div > input[type="text"] {
+    display: block;
+}
+
+
+
+
+#form-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form-header > section > button,
+#form-header > section > input[type='submit'] {
+    background-color: maroon;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+tbody tr > *{
+    cursor: pointer;
+}
+tbody tr:hover {
+    background-color: rgba(128, 0, 0, 0.37) !important;
+}
+
+
+table {
+    max-width: 100% !important;
+}
+
+button#delete-student-btn {
+    width: fit-content !important;
+    background-color: maroon;
+    color: white;
+    padding: 5px;
+    border: none;
+    align-self: flex-end;
+    cursor: pointer;
+}

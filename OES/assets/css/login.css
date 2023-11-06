@@ -1,0 +1,153 @@
+*,
+*::after,
+*::before
+{
+    padding: 0;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    min-width: 400px;
+    width: 45%;
+    min-height: 400px;
+    height: 45%;
+    border-radius: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#one{
+    background-color: maroon; 
+}
+
+#two{
+    gap: 100px;
+    justify-content: start;
+    padding-top: 100px;
+}
+
+#one,
+#two{
+    width: 50%;
+}
+
+h1,
+h2{
+    text-align: center;
+    color: white;
+}
+
+h2{
+    font-weight: lighter;
+}
+
+#tab{
+    display: flex;
+    width: 100% !important;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#tab > span{
+    /* background-color: maroon; */
+    border-radius: 10px;
+    color: maroon;
+    font-weight: bold;
+    padding-block: 10px;
+    padding-inline: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#tab > span:hover{
+    background-color: maroon;
+    color:white;
+}
+
+form > span{
+    color: maroon;
+    font-weight: bold;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+form  input[type="text"],
+form  input[type="password"]{
+    border: 2px solid maroon;
+    padding: 10px;
+    border-radius: 10px;
+    padding-left: 25px;
+    width: 100%;
+    display: inline-block;
+}
+
+form > button{
+    background-color: maroon;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form > span#email,
+form > span#password,
+form > button{
+    width: 40%;
+    display: inline-block;
+}
+
+form > span{
+    position: relative;
+    width: fit-content;
+}
+
+form > span > label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 3%;
+}
+
+div#two > #btn-fquestion{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    padding:20px;
+    font-size: 16px;
+    background-color: rgb(143, 66, 66);
+    color: white;
+    margin: 10px;
+    border: none;
+}

@@ -1,32 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <header>
-        <div id="logo-holder">
-            <img src="logo.png" alt="" style="width:35px;height:35px";>
-            ABIS
-       </div> 
-      
-        <nav>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="student.html">Students</a>
-            <a href="settings.html">Settings</a>
-            <a href="login.html">Logout</a>
-        </nav>
-   
-    </header>
+<?php 
+require "./template/head.php";
+
+load_header("Dashboard", ["dashboard","header"], ["dashboard"]);
+?>
+
+<?php 
+require "./includes/header.php";
+?>
     <main>
-        <h1>
-            DASHBOARD
-        </h1>
+
+        <section id="charts">
+            <div id="total-enrolles">
+                <div class="card">
+                    <h2 id="total-enrollees">
+                        156
+                    </h2>
+                    <h3>
+                        Total of Enrolles
+                    </h3>
+                </div>
+            </div>
+            
+            <div id="pie-chart">
+                <div class="chart">
+                    <h2>Enrollment By Gender</h2>
+                    <canvas id="enrollees-gender-chart"></canvas>
+                </div>
+                <div class="chart">
+                    <h2>Enrollment By Grade Level</h2>
+                    <canvas id="enrollees-grade-level-chart"></canvas>
+                </div>
+                
+            </div>
+            <div id="bar-chart">
+                <p class="time-frame"></p>
+                <canvas id="enrollees-chart"></canvas>
+            </div>
+                
+        </section>        
     </main>
-</body>
-</html>
+<?php 
+require "./template/footer.php";
+load_footer([]);
+?>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/create-user.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+       <div id="logo-holder">
+            <img src="logo.png" alt="" style="width:50px;height:50px";>
+            Andres Bonifacio Integrated School
+       </div> 
+        <nav>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="view-students.html">Students</a>
+            <a href="settings-acc.html">Settings</a>
+            <a href="login.php">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="setting">
+                <h1>
+                    SETTINGS
+                </h1>   
+                <a class="btn btn-account" href="settings-acc.html" role="button"><i class="fa-solid fa-user"></i>Account</a>
+                <a class="btn btn-account" href="password.html" role="button"><i class="fa fa-lock"></i>Password</a>
+                <a class="btn btn-account" href="" role="button"><i class="fa fa-users"></i>Manage User</a>
+                <a class="btn btn-account" href="view-user.html" role="button"><i class="fa-regular fa-file"></i>View All Users</a>
+                <a class="btn btn-account" href="create-user.html" role="button"><i class="fa-regular fa-user"></i>Create New User</a>
+            </div>
+            <div class="account">
+                <p>Create User</p>
+                <form action="">
+                   <span>
+                        <label for="fname">First Name</label>
+                        <input type="text" placeholder="" id="fname" name="firstname">
+                   </span>
+                   <span>
+                        <label for="lname">Last Name</label>
+                        <input type="text" placeholder="" id="lname" name="lasttname">
+                   </span>
+                   <span>
+                        <label for="uname">Email</label>
+                        <input type="text" placeholder="" id="ename" name="email">
+                   </span>
+                   <span>
+                    <label for="uname">Role</label>
+                    <input type="text" placeholder="" id="role" name="role">
+                    </span>
+                    <span>
+                        <label for="uname">Password</label>
+                        <input type="text" placeholder="" id="password" name="password">
+                   </span>
+                   <span>
+                    <label for="uname">Re-Enter Password</label>
+                    <input type="text" placeholder="" id="password" name="password">
+               </span>
+                   <span>
+                        <input type="submit" value="Create">
+                   </span> 
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        QU
+    </footer>
+</body>
+</html>

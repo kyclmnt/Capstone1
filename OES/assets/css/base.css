@@ -1,0 +1,66 @@
+.primary {
+    color: #3498DB ;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hide{
+    display: none !important;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.border-none{
+    border : none !important;
+}
+
+/* FLEX */
+.flex {
+    display: flex;
+}
+
+.justify-center { 
+    justify-content: center !important;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.gap-md {
+    gap: 8px;
+}
+
+.no-flex-grow {
+    flex-grow: 0;
+}
+
+/* Background */
+.bg-transparent {
+    background: transparent;
+}
+
+
+/* Button */
+button.active {
+    background-color: #c26261;
+}
+
+
+/* Padding */
+.p-md{
+    padding: 8px;
+}
+
+

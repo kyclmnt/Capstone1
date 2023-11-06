@@ -1,0 +1,55 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+div#logo-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+header{
+    background-color: #8d2826;
+    background-image: linear-gradient(rgb(71, 13, 13), rgb(119, 20, 20));
+    background-size: cover;
+    color: white;
+    letter-spacing: 2px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.50rem;
+    justify-content: space-between;
+} 
+nav {
+    display:flex;
+    flex-direction: row;
+    gap: 25px;
+    /* margin-left: 710px; */
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    
+} 
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:active {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}

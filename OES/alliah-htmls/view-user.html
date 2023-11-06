@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Users</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/view-user.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+      <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="logo-holder">
+             <img src="logo.png" alt="" style="width:50px;height:50px";>
+             Andres Bonifacio Integrated School
+        </div> 
+         <nav>
+             <a href="dashboard.php">Dashboard</a>
+             <a href="view-students.html">Students</a>
+             <a href="settings-acc.html">Settings</a>
+             <a href="login.php">Logout</a>
+         </nav>
+     </header>
+     <main>
+        <section>
+            <div class="setting">
+                <h1>
+                    SETTINGS
+                </h1>   
+                <a class="btn btn-account" href="settings-acc.html" role="button"><i class="fa-solid fa-user"></i>Account</a>
+                <a class="btn btn-account" href="password.html" role="button"><i class="fa fa-lock"></i>Password</a>
+                <a class="btn btn-account" href="" role="button"><i class="fa fa-users"></i>Manage User</a>
+                <a class="btn btn-account" href="view-user.html" role="button"><i class="fa-regular fa-file"></i>View All Users</a>
+                <a class="btn btn-account" href="create-user.html" role="button"><i class="fa-regular fa-user"></i>Create New User</a>
+            </div>
+            <div style="flex-grow: 1;" id="view-users">
+                <h1>
+                    View All Users
+                </h1>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Username
+                            </th>
+                            <th>
+                                Role
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan Dela Cruz</td>
+                            <td>delacruzjuan</td>
+                            <td>admin</td>
+                        </tr>
+                        <tr>
+                            <td>Sky Valer</td>
+                            <td>skyv</td>
+                            <td>user</td>
+                        </tr>
+                        <tr>
+                            <td>Admin test</td>
+                            <td>testadmin</td>
+                            <td>admin</td>
+                        </tr>
+                        <tr>
+                            <td>Pepper Ciao</td>
+                            <td>pepperc</td>
+                            <td>user</td>
+                        </tr>
+                        <tr>
+                            <td>Rio Assi</td>
+                            <td>user</td>
+                            <td>rioass</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        QU
+    </footer>
+</body>
+</html>
+<script>
+    $("#table").DataTable();
+</script>
