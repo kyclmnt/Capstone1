@@ -51,11 +51,11 @@ nav {
     font-size: 14px;
     letter-spacing: 1.5px;
 }
+
 a{
     text-decoration: none;
     color: white;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     column-gap: 10px;
 }
@@ -77,13 +77,9 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     letter-spacing: 2px;
     font-size: 25px;
-    /* padding-top: 20px; */
 }
 
 .setting {
-    /* padding-bottom: 250px;  */
-    /* padding-left: 80px; */
-    /* line-height: 2.0; */
     font-size: 18px;
     float: right;
 }
@@ -98,10 +94,6 @@ a:hover.btn-account{
     color: black;
     background-color: #c26261;
     opacity: 0.5;
-    /* padding-left: 10px;
-    padding-right: 50px;
-    padding-top: 5px;
-    padding-bottom: 5px; */
 }
 
 a:active.btn-account {
@@ -115,23 +107,18 @@ a:visited.btn-account {
 }
 
 .account > p{
-    /* padding-left: 400px; */
     font-family: 'Times New Roman', Times, serif;
     font-size:25px;
-    /* padding-bottom: 10px; */
 }
 
 .account{
-    /* margin-left: 350px; */
     width:58%;
     min-height:300px;
     border-radius: 10px;
-    /* margin-top: 20px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
-    /* padding-block: 20px; */
 }
 
 .account > p{
@@ -159,8 +146,6 @@ a:visited.btn-account {
 }
 
 .account > form > span:last-of-type{
-    /* display:flex;
-    justify-content: flex-end; */
     place-items: end;
     padding-right: 10%;
 }
@@ -174,11 +159,9 @@ input {
 input[type=text], select {
     width: 80%;
     padding: 12px 20px;
-    /* margin-left: 50px; */
     display: flex;
     border: 1px solid #8d2826;
     border-radius: 15px;
-    /* box-sizing: border-box; */
 }
 
 input[type=submit] {
@@ -186,11 +169,9 @@ input[type=submit] {
     background-color: #8d2826;
     color: white;
     padding: 10px;
-    /* margin-left: 472px; */
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    /* justify-self: flex-end; */
 }
   
 input[type=submit]:hover {
@@ -203,14 +184,10 @@ label{
     text-align: left;
     width: 80%;
     font-weight: bold;
-    /* padding-top: 50px;
-    padding-left: 50px; */
- 
 }
 
 section{
     display:flex;
     padding-top:20px;
     column-gap: 10%;
-    /* align-items: center; */
 }

@@ -1,0 +1,138 @@
+ span{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+} 
+/* header{
+    display: flex;
+    justify-content: space-between;
+} */
+#plog{
+    color: white;
+    margin-right: 20px;
+}
+h3{
+    color:black;
+    text-align: center;
+    gap: 20px;
+}
+
+#lname,
+#fname,
+#email,
+#password{
+    gap: 20px;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: none;
+    padding: 0.25rem;
+}
+
+input[type = "Last Name"]::placeholder,
+input[type = "First Name"]::placeholder,
+input[type = "text"]::placeholder,
+input[type = "password"]::placeholder{
+    color: black;
+}
+
+input[type = "Last Name"]::placeholder,
+input[type = "First Name"]::placeholder,
+input[type = "text"],
+input[type = "password"]{
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: none;
+    gap: 20px;
+}
+
+#reg{
+    border-radius: 10px;
+    border: none;
+    background-color: maroon;
+    padding: 5px 20px;
+    color: white;
+    
+}
+
+/* #login{
+    border: 1px solid white;
+    background-color: #CD6155;
+    border-radius: 10px;
+    padding: 5px;
+   
+} */
+
+
+
+
+
+
+
+/* ALLY */
+span{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+} 
+/* header{
+    display: flex;
+    justify-content: space-between;
+} */
+#plog{
+    color: white;
+    margin-right: 20px;
+}
+
+h3{
+    color:black;
+    text-align: center;
+    gap: 20px;
+}
+
+#lname,
+#fname,
+#email,
+#password{
+    gap: 20px;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: none;
+    padding: 0.25rem;
+}
+
+input[type = "Last Name"]::placeholder,
+input[type = "First Name"]::placeholder,
+input[type = "text"]::placeholder,
+input[type = "password"]::placeholder{
+    color: black;
+}
+
+input[type = "Last Name"]::placeholder,
+input[type = "First Name"]::placeholder,
+input[type = "text"],
+input[type = "password"]{
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: none;
+    gap: 20px;
+}
+
+#reg{
+    border-radius: 10px;
+    border: none;
+    background-color: maroon;
+    padding: 5px 20px;
+    color: white;
+    
+}
+/* #login{
+    border: 1px solid white;
+    background-color: #CD6155;
+    border-radius: 10px;
+    padding: 5px;
+   
+} */

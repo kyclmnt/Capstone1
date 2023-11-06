@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/abisform.css">
 </head>
 <body>  
-    <form id="form" action="results.html" method="GET"> 
+    <form id="form" action="results.html" method="POST"> 
         <div> 
             <label for="schoolyear">School Year</label>
             <input type="numeric" name="schoolyear">

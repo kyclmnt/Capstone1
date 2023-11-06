@@ -1,16 +1,15 @@
 <?php
-require 'conn.php';
+require "./template/constants.php";
 
+require './db/conn.php';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
     <main>
@@ -23,15 +22,8 @@ require 'conn.php';
                 <i>"Aim High ABIS, Aim for Excellence"</i>
             </h2>
         </div>
-
         <div id="two">
            <div id="tab">
-                <!-- <span>
-                    ADMIN
-                </span>
-                <span>
-                    APPLICANT
-                </span> -->
            </div> 
            <form action="login.php" method="POST">
                 <span>
@@ -47,7 +39,6 @@ require 'conn.php';
                     <input type="password" name="password" placeholder="Password">
                 </span>
                 <button id="submit" name="submit" type="submit">
-                    <!--Temporary lang para lang malink sa dashboard-->
                   LOGIN
                 </button>
             </form>
@@ -67,7 +58,7 @@ if(isset($_POST["submit"])){
     if($conn==false){
         die(mysqli_connect_error());
     }
-    $sql = "SELECT `email`, `password`, `role` FROM  users WHERE `email` = '$email' and `password` = PASSWORD('$password') LIMIT 1";
+    $sql = "SELECT `email`, `password`, `role` FROM tb_user_acc WHERE `email` = '$email' and `password` = PASSWORD('$password') LIMIT 1";
     $query= mysqli_query($conn,$sql);
     $result =  mysqli_fetch_assoc($query);
     if (!$result){
@@ -84,14 +75,13 @@ if(isset($_POST["submit"])){
         mysqli_close($conn); 
     
         if ($_SESSION["role"]=="S"){
-            header("Location:abisform.php");
+            header("Location:./dash/abisform.php");
         }
     
         elseif ($_SESSION["role"]=="A"){
-            header("Location:dashboard.php");
-        }
+            header("Location:dashboard.php"); #dashboard.php 
+        } 
     }
-
 }
 ?>
 </body>

@@ -1,0 +1,95 @@
+
+.section-title h3 {
+    background: rgb(112, 1, 1);
+    padding: 10px;
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h3#et {
+    text-transform: inherit;
+}
+
+.section-title .col-md-12 {
+    margin: 0;
+    padding: 0;
+}
+
+form label {
+    text-transform: capitalize;
+    font-size: 16px;
+    margin: 0;
+    display: inline-block;
+}
+
+form {
+    margin-bottom: 35px;
+}
+
+form input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddd;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.left-side-form {
+    margin-right: 25px;
+}
+
+.right-side-form {
+    margin-left: 25px;
+}
+
+select {
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #dddd;
+    text-transform: capitalize;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+input[type="radio"] {
+    margin: 0 8px;
+    margin-bottom: 70px;
+}
+
+input[type="submit"] {
+    background: rgb(112, 1, 1);
+    border: none;
+    color: #fff;
+    padding: 10px 50px;
+    border-radius: 10px;
+    outline: none;
+}
+
+h5 span.error,
+span.error {
+    font-size: 16px;
+    color: black;
+    margin-left: 5%;
+}
+
+.errorMessage {
+    display: block;
+    color: #BE4B49;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.successMessage {
+    display: block;
+    color: #00770D;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
