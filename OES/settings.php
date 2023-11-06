@@ -1,20 +1,8 @@
 <?php 
 require "./template/head.php";
-load_header("Settings",["main","settings"],[]);
-?>
-<body>
-    <header>
-       <div id="logo-holder">
-            <img src="logo.png" alt="" style="width:35px;height:35px";>
-            ABIS
-       </div> 
-        <nav>
-            <a href="dashboard.php">Dashboard</a>
-            <a href="student.php">Students</a>
-            <a href="settings.php">Settings</a>
-            <a href="login.php">Logout</a>
-        </nav>
-    </header>
+load_header("Settings",["main","settings", "footer"],["settings"]);
+
+?>  
     <main>
         <section>
             <div class="setting">
@@ -27,22 +15,23 @@ load_header("Settings",["main","settings"],[]);
             </div>
             <div class="account">
                 <p>Account</p>
-                <form action="">
-                   <span>
-                        <label for="fname">First Name</label>
-                        <input type="text" placeholder="Firstname" id="fname" name="firstname">
-                   </span>
-                   <span>
-                        <label for="lname">Last Name</label>
-                        <input type="text" placeholder="Lastname" id="lname" name="lasttname">
-                   </span>
-                   <span>
-                        <label for="uname">Username</label>
-                        <input type="text" placeholder="Username" id="uname" name="username">
-                   </span>
-                   <span>
-                        <input type="submit" value="Save">
-                   </span> 
+                <form action="" method="post" id="form-container">
+                    <input type="hidden" name="id" value="<?= $_SESSION['uid']; ?>">
+                    <span>
+                            <label for="fname">First Name</label>
+                            <input type="text" placeholder="Firstname" id="fname" name="fname" value="<?php echo($_SESSION['fname']); ?>">
+                    </span>
+                    <span>
+                            <label for="lname">Last Name</label>
+                            <input type="text" placeholder="Lastname" id="lname" name="lname" value="<?php echo($_SESSION['lname']); ?>">
+                    </span>
+                    <span>
+                            <label for="uname">Username</label>
+                            <input type="text" placeholder="Username" id="email" name="email" value="<?php echo($_SESSION['email']); ?>"> 
+                    </span>
+                    <span>
+                            <button type="submit">Save</button>
+                    </span> 
                 </form>
             </div>
         </section>

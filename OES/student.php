@@ -1,20 +1,8 @@
 <?php
 require "./template/head.php";
-load_header("Student",["base","main","student"], ["student"]);
+load_header("Student",["base","main","student", "footer"], ["student"]);
 
 ?>
-    <header>
-        <div id="logo-holder">
-            <img src="logo.png" alt="" style="width:35px;height:35px";>
-            ABIS
-       </div> 
-        <nav>
-            <a href="dashboard.php">Dashboard</a>
-            <a href="student.php">Students</a>
-            <a href="settings.php">Settings</a>
-            <a href="login.php">Logout</a>
-        </nav>
-    </header>
     <main>
         <section>
             <div class="students">

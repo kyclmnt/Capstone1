@@ -4,16 +4,13 @@ require "./template/head.php";
 load_header("Dashboard", ["dashboard","header"], ["dashboard"]);
 ?>
 
-<?php 
-require "./includes/header.php";
-?>
     <main>
 
         <section id="charts">
             <div id="total-enrolles">
                 <div class="card">
                     <h2 id="total-enrollees">
-                        156
+                        --
                     </h2>
                     <h3>
                         Total of Enrolles

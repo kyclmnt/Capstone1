@@ -19,14 +19,14 @@ body{
     height: 100vh;
 }
 
-div{
+main div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-img{
+main img{
     min-width: 400px;
     width: 45%;
     min-height: 400px;

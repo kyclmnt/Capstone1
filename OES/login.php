@@ -1,17 +1,12 @@
 <?php
 require "./template/constants.php";
-
+require "./template/head.php";
 require './db/conn.php';
+
+
+load_header("Login", ['login','main'], []);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="assets/css/login.css">
-</head>
-<body>
+    
     <main>
         <div id="one">
             <img src="logo.png">
@@ -58,7 +53,7 @@ if(isset($_POST["submit"])){
     if($conn==false){
         die(mysqli_connect_error());
     }
-    $sql = "SELECT `email`, `password`, `role` FROM tb_user_acc WHERE `email` = '$email' and `password` = PASSWORD('$password') LIMIT 1";
+    $sql = "SELECT `id`, `lname`, `fname`, `email`, `password`, `role` FROM tb_user_acc WHERE `email` = '$email' and `password` = PASSWORD('$password') LIMIT 1";
     $query= mysqli_query($conn,$sql);
     $result =  mysqli_fetch_assoc($query);
     if (!$result){
@@ -72,13 +67,19 @@ if(isset($_POST["submit"])){
     else{
         $_SESSION["email"]=$result["email"];
         $_SESSION["role"]=$result["role"];
+        $_SESSION["fname"]=$result["fname"];
+        $_SESSION["lname"]=$result["lname"];
+        $_SESSION["uid"]=$result["id"];
+        
         mysqli_close($conn); 
     
         if ($_SESSION["role"]=="S"){
-            header("Location:./dash/abisform.php");
+            // var_dump($_SESSION); die;
+            header("Location:abisform.php");
         }
     
         elseif ($_SESSION["role"]=="A"){
+            // var_dump($_SESSION);
             header("Location:dashboard.php"); #dashboard.php 
         } 
     }

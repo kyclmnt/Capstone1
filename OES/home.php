@@ -1,7 +1,7 @@
 <?php
 require "./template/head.php";
 unset($_SESSION["role"]);
-load_header("Home", ["header","home"], [""]);
+load_header("Home", ["header","home", "footer"], [""]);
 ?>
 
 <body>
@@ -39,5 +39,7 @@ load_header("Home", ["header","home"], [""]);
         </form>
     </main>
 
-</body>
-</html>
+<?php
+    require "./template/footer.php";
+    load_footer([]);
+?>

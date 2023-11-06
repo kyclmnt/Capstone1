@@ -46,6 +46,7 @@ function load_header(String $title = "Document", Array $css = [], Array $js = []
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="<?=base_url("assets/datatable/css/dataTables.dataTables.min.css")?>">
     
+    <link rel="stylesheet" href="<?=base_url("assets/css/base.css")?>">
     <link rel="stylesheet" href="<?=base_url("assets/css/main.css")?>">
     <link rel="stylesheet" href="<?=base_url("assets/css/header.css")?>">
     <link rel="stylesheet" href="<?=base_url("assets/css/footer.css")?>">
@@ -68,6 +69,28 @@ function load_header(String $title = "Document", Array $css = [], Array $js = []
     </script>
 </head>
 
+
+<header>
+    <div id="logo-holder">
+        <img src="logo.png" alt="" style="width:50px;height:50px";>
+        Andres Bonifacio Integrated School
+    </div> 
+    <nav>
+        <?php 
+        if(isset($_SESSION["role"])){
+        ?>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="student.php">Students</a>
+            <a href="settings.php">Settings</a>
+            <a href="<?=BASE_PATH;?>api/logout.php">Logout</a>
+        <?php 
+        }else{
+        ?>
+            <a href="login.php">Login</a>
+        <?php }
+        ?>        
+    </nav>
+</header>
 
 <body >
 

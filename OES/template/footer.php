@@ -3,7 +3,7 @@ require_once "constants.php";
 function load_footer(array $js = [])
 { ?>
     
-    <footer class="d-flex justify-content-around gap-2">
+    <footer class="flex justify-center">
         ABIS S.Y. 2023-2024
     </footer>
 
