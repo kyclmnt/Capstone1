@@ -22,15 +22,21 @@ body{
     height: 100vh;
     width: 100vw;
 }
-
-a{
+button.nav-link{
     text-decoration: none;
-    color: white;
-    display: flex;
+    color: black !important;
+    text-align: left !important;
+    width: 100% !important;
+    /* display: flex; */
     /* justify-content: center; */
-    align-items: center;
-    column-gap: 10px;
+    /* align-items: center;
+    column-gap: 10px; */
 }
+button.active {
+    color: white !important;
+    background-color: #8d2826 !important;
+}
+
 /* a:visited {
     color: white;
     background-color: transparent;
@@ -45,8 +51,8 @@ a:hover {
 } */
 
 h1 {
-    color: #8d2826;
-    font-family: 'Times New Roman', Times, serif;
+    /* color: #8d2826; */
+    /* font-family: 'Times New Roman', Times, serif; */
     letter-spacing: 2px;
     font-size: 25px;
     /* padding-top: 20px; */
@@ -86,14 +92,14 @@ a:visited.btn-account {
     background-color: #c26261;
 }
 
-.account > p{
+.user-profile > p{
     /* padding-left: 400px; */
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
     font-size:25px;
     /* padding-bottom: 10px; */
 }
 
-.account{
+.user-profile{
     /* margin-left: 350px; */
     width:58%;
     min-height:300px;
@@ -106,13 +112,13 @@ a:visited.btn-account {
     /* padding-block: 20px; */
 }
 
-.account > p{
+.user-profile > p{
     width: 90%;
 
 }
 
-.account > form{
-    border: 1px solid maroon;
+.user-profile > form{
+    border: 1px solid #8d2826;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -123,14 +129,14 @@ a:visited.btn-account {
     width: 90%;
 }
 
-.account > form > span {
+.user-profile > form > span {
     width:100%;
     display: grid;
     place-items: center;
     gap: 10px;
 }
 
-.account > form > span:last-of-type{
+.user-profile > form > span:last-of-type{
     /* display:flex;
     justify-content: flex-end; */
     place-items: end;

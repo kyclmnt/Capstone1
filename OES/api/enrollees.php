@@ -42,12 +42,11 @@ if(isset($_POST['id'])) {
             FROM `tb_form` `tbf` WHERE `tbf`.deleted_flg = "0"';
 }
 
+
 $query = $conn->query($sql);
 
 
-
-
-while($result = $query->fetch_object()) array_push($data, $result);
+while($result = $query->fetch_assoc()) array_push($data, $result);
 
 
 echo json_encode(["data" => $data]);

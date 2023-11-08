@@ -8,25 +8,20 @@
     box-sizing: border-box;
 }
 
-main{
-    display: flex;
-    height: 100%;
-}
-
 body{
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-main div{
+div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-main img{
+img{
     min-width: 400px;
     width: 45%;
     min-height: 400px;
@@ -37,7 +32,7 @@ main img{
 }
 
 #one{
-    background-color: maroon; 
+    background-color: #8d2826; 
 }
 
 #two{

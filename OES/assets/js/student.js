@@ -193,22 +193,28 @@ function toggle_id_column(element) {
 }
 
 function delete_enrollee() {
-    const form = new FormData();
-    $("input[name='stud_id[]']").each(function(){
-        if(this.checked) form.append(this.name, this.value);
+
+    showModal("Delete record", "Are you sure you want to delete the selected record/s ?",["no", "yes"], ()=>{
+        const form = new FormData();
+        $("input[name='stud_id[]']").each(function(){
+            if(this.checked) form.append(this.name, this.value);
+        })
+    
+    
+        fetch(base_url + "api/delete_enrollee.php", {
+            method : "post",
+            body : form
+        })
+        .then(response=>response.json())
+        .then(data => {
+            const result = data.result.status;
+            
+            loadData(base_url + "api/enrollees.php", $("#table"));
+            showToast(result); // 
+        })
     })
 
-
-    fetch(base_url + "api/delete_enrollee.php", {
-        method : "post",
-        body : form
-    })
-    .then(response=>response.json())
-    .then(data => {
-        console.log(data)
-       
-        loadData(base_url + "api/enrollees.php", $("#table"));
-    })
+    
 }
 
 function toggle_active() {

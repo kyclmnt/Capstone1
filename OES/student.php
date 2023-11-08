@@ -1,6 +1,6 @@
 <?php
 require "./template/head.php";
-load_header("Student",["base","main","student", "footer"], ["student"]);
+load_header("Student",["header", "student", "footer"], ["student"]);
 
 ?>
     <main>
@@ -9,8 +9,8 @@ load_header("Student",["base","main","student", "footer"], ["student"]);
                 <h1>
                     STUDENTS
                 </h1>   
-                <button type="button" id="view-btn" class="btn btn-account bg-transparent active border-none p-md cursor-pointer" onclick="toggle_id_column(this)"><i class="fa-regular fa-file" ></i>View Students</button>
-                <button type="button" id="delete-btn" class="btn btn-account p-md bg-transparent border-none cursor-pointer" onclick="toggle_id_column(this)"><i class="fa-solid fa-trash-can"></i>Delete Students</button>
+                <button type="button" id="view-btn" class="btn btn-account bg-transparent active border-none p-md cursor-pointer" onclick="toggle_id_column(this)"><i class="fa-regular fa-file" ></i> View Students</button>
+                <button type="button" id="delete-btn" class="btn btn-account p-md bg-transparent border-none cursor-pointer" onclick="toggle_id_column(this)"><i class="fa-solid fa-trash-can"></i> Delete Students</button>
                 </i>
             </div>
 
@@ -39,12 +39,14 @@ load_header("Student",["base","main","student", "footer"], ["student"]);
                 </table>
                 <button id='delete-student-btn' class="hide no-flex-grow" onclick='delete_enrollee()'>Delete</button>
             </div>
-
+            
             <form id="form-container" class="hide" method="post" ></form>
+            
         </section>
         
     </main>
 
+    
 <?php
     require "./template/footer.php";
     load_footer([]);

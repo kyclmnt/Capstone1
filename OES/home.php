@@ -1,18 +1,17 @@
 <?php
 require "./template/head.php";
 unset($_SESSION["role"]);
+
 load_header("Home", ["header","home", "footer"], [""]);
 ?>
 
-<body>
-    <?php include "./includes/header.php"; ?>
     <main>
-        <h1><?php
+        <?php
             if(isset($_SESSION['message'])) {
-                echo $_SESSION['message'];
+                echo "<h1>" . $_SESSION['message'] . "</h1>";
                 unset($_SESSION['message']);
             }
-        ?></h1>
+        ?>
         <form action="">
 
             <h3>
