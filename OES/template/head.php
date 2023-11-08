@@ -75,18 +75,18 @@ function load_header(String $title = "Document", Array $css = [], Array $js = []
         <img src="logo.png" alt="" style="width:50px;height:50px";>
         Andres Bonifacio Integrated School
     </div> 
-    <nav>
+    <nav class="nav">
         <?php 
         if(isset($_SESSION["role"])){
         ?>
-            <a href="dashboard.php">Dashboard</a>
-            <a href="student.php">Students</a>
-            <a href="settings.php">Settings</a>
-            <a href="<?=BASE_PATH;?>api/logout.php">Logout</a>
+            <a class="nav-link active" href="dashboard.php">Dashboard</a>
+            <a class="nav-link" href="student.php">Students</a>
+            <a class="nav-link" href="settings.php">Settings</a>
+            <a class="nav-link" href="<?=BASE_PATH;?>api/logout.php">Logout</a>
         <?php 
         }else{
         ?>
-            <a href="login.php">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
         <?php }
         ?>        
     </nav>

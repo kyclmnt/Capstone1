@@ -3,8 +3,8 @@ require_once "constants.php";
 function load_footer(array $js = [])
 { ?>
     
-    <footer class="flex justify-center">
-        ABIS S.Y. 2023-2024
+    <footer class="d-flex justify-center align-items-center">
+        <h4 class="fw-bold">ABIS S.Y. 2023-2024</h3>
     </footer>
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -51,7 +51,7 @@ function load_footer(array $js = [])
             toast.show();
         }
 
-        function showModal(title, body, footer_content = [], callback) {
+        function showModal(title, body, footer_content = [], flag="g", callback) {
 
             $("#modal #modal-title").html('');
             $("#modal #modal-body").html('');
@@ -63,8 +63,9 @@ function load_footer(array $js = [])
             for(let content of footer_content) {
                 if(content == "close" || content == "cancel" || content == "no") $("#modal #modal-footer").append($(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${content}</button>`))
                 else {
-                    const btn = $(`<button type="button" class='btn btn-danger' data-bs-dismiss="modal">${content}</button>`);
+                    const btn = $(`<button type="button" data-bs-dismiss="modal">${content}</button>`);
                     btn.on("click", callback);
+                    btn.addClass(`btn btn-${ flag === "g" ? "success" : "danger"}`);
                     $("#modal #modal-footer").append(btn)
                 }
             }

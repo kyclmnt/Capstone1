@@ -28,20 +28,20 @@ load_header("Settings", ["main", "settings", "footer"], ["settings"]);
             </ul>
         </div>
         <div class="user-profile">
-             
+            <h1>Account</h1>
             <form action="" method="post" id="form-container">
                 <input type="hidden" name="id" value="<?= $_SESSION['uid']; ?>">
                 <span>
-                    <label for="fname">First Name</label>
-                    <input type="text" placeholder="Firstname" id="fname" name="fname" value="<?php echo ($_SESSION['fname'] ?? ""); ?>">
+                    <label for="fname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="Firstname" id="fname" name="fname" value="<?php echo ($_SESSION['fname'] ?? ""); ?>">
                 </span>
                 <span>
-                    <label for="lname">Last Name</label>
-                    <input type="text" placeholder="Lastname" id="lname" name="lname" value="<?php echo ($_SESSION['lname'] ?? ""); ?>">
+                    <label for="lname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Lastname" id="lname" name="lname" value="<?php echo ($_SESSION['lname'] ?? ""); ?>">
                 </span>
                 <span>
-                    <label for="uname">Username</label>
-                    <input type="text" placeholder="Username" id="email" name="email" value="<?php echo ($_SESSION['email'] ?? ""); ?>">
+                    <label for="uname" class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="Username" id="email" name="email" value="<?php echo ($_SESSION['email'] ?? ""); ?>">
                 </span>
                 <span>
                     <button type="submit" class="btn btn-success">Save</button>

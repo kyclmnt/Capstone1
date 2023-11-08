@@ -9,7 +9,7 @@ load_header("Dashboard", ["dashboard","header"], ["dashboard"]);
         <section id="charts">
             <div id="total-enrolles">
                 <div class="card">
-                    <h2 id="total-enrollees">
+                    <h2 id="total-enrollees" class="fw-bold">
                         --
                     </h2>
                     <h3>

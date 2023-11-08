@@ -18,8 +18,6 @@ load_header("Login", ['login'], []);
         </h2>
     </div>
     <div id="two">
-        <div id="tab">
-        </div>
         <form action="login.php" method="POST">
             <span>
                 LOGIN HERE!

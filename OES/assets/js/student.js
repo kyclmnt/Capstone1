@@ -194,7 +194,7 @@ function toggle_id_column(element) {
 
 function delete_enrollee() {
 
-    showModal("Delete record", "Are you sure you want to delete the selected record/s ?",["no", "yes"], ()=>{
+    showModal("Delete record", "Are you sure you want to delete the selected record/s ?",["no", "yes"],"r" ,()=>{
         const form = new FormData();
         $("input[name='stud_id[]']").each(function(){
             if(this.checked) form.append(this.name, this.value);

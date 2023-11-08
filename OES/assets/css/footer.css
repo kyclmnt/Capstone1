@@ -9,3 +9,7 @@ footer{
     justify-content: space-between;
     gap: 0.50rem;
 }
+
+.toast {
+    background-color: white !important;
+}
