@@ -25,7 +25,7 @@ if(isset($_POST['id'])) {
             `tbf`.`placeofbirth`,
             CONCAT(`tbf`.Cbrgy, ' ', `tbf`.`Chousenum`, ' ', `tbf`.`Cstreet`, ' ', `tbf`.`Ccity`) as 'addr'
             FROM `tb_form` `tbf`
-            WHERE `tbf`.id  = {$id} AND `tbf`.deleted_flg = '0'";
+            WHERE `tbf`.id  = {$id} AND `tbf`.deleted_flag = '0'";
 } else {
     $sql = 'SELECT 
             `tbf`.id as "id",
@@ -39,7 +39,7 @@ if(isset($_POST['id'])) {
                 ELSE `tbf`.strand 
             END as "strand",
             `tbf`.gradelevel as "gradelevel"
-            FROM `tb_form` `tbf` WHERE `tbf`.deleted_flg = "0"';
+            FROM `tb_form` `tbf` WHERE `tbf`.deleted_flag = "0"';
 }
 
 

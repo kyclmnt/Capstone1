@@ -1,53 +1,40 @@
 <?php
 require "./template/head.php";
-load_header("Student",["header", "student", "footer"], ["student"]);
+load_header("Student", ["header", "student", "footer"], ["student"]);
 
 ?>
-    <main>
-        <section>
-            <div class="students">
-                <h1>
-                    STUDENTS
-                </h1>   
-                <button type="button" id="view-btn" class="btn btn-account bg-transparent active border-none p-md cursor-pointer" onclick="toggle_id_column(this)"><i class="fa-regular fa-file" ></i> View Students</button>
-                <button type="button" id="delete-btn" class="btn btn-account p-md bg-transparent border-none cursor-pointer" onclick="toggle_id_column(this)"><i class="fa-solid fa-trash-can"></i> Delete Students</button>
-                </i>
-            </div>
+<main>
+    <section>
+        <div class="students">
+            <h1>
+                STUDENTS
+            </h1>
+            <ul class="nav nav-pills d-flex flex-column">
+                <li class="nav-item">
+                    <button type="button" id="v-pills-students-tab" data-bs-toggle="pill" data-bs-target="#v-pills-students" aria-controls="v-pills-students" class="nav-link active" onclick="toggle_id_column(this)"><i class="fa-regular fa-file"></i> View Students</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" id="v-pills-deletestudent-tab" data-bs-toggle="pill" data-bs-target="#v-pills-deletestudent" aria-controls="v-pills-deletestudent" class="nav-link " onclick="toggle_id_column(this)"><i class="fa-solid fa-trash-can"></i> Delete Students</button>
+                </li>
+        </div>
 
-            <div style="flex-grow: 1;" id="view-students">
-                <h1> 
-                    View Students
-                </h1>
-                <table id="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                ID
-                            </th>
-                            <th style="text-align:center;">
-                                Name
-                            </th>
-                            <th>
-                                Strand / Course
-                            </th>
-                            <th>
-                                Grade
-                            </th>
-                        </tr>
-                    </thead>
-                    
-                </table>
-                <button id='delete-student-btn' class="hide no-flex-grow" onclick='delete_enrollee()'>Delete</button>
-            </div>
-            
-            <form id="form-container" class="hide" method="post" ></form>
-            
-        </section>
-        
-    </main>
+        <div style="flex-grow: 1;" id="view-students">
+            <h1>
+                View Students
+            </h1>
+            <table id="table">
+            </table>
+            <button id='delete-student-btn' class="hide no-flex-grow" onclick='delete_enrollee()'>Delete</button>
+        </div>
 
-    
+        <form id="form-container" class="hide" method="post"></form>
+
+    </section>
+
+</main>
+
+
 <?php
-    require "./template/footer.php";
-    load_footer([]);
+require "./template/footer.php";
+load_footer([]);
 ?>

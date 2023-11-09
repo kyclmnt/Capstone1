@@ -80,9 +80,45 @@ body{
 
 
 main{
+    flex-grow: 1 !important;
     display: flex;
     height: 100%;
-
+    min-height: 100vh !important;
     justify-content: center;
+    padding: 1rem;
 }
 
+/*  button link */
+button.nav-link{
+    text-decoration: none;
+    color: black !important;
+    text-align: left !important;
+    width: 100% !important;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center;
+    column-gap: 10px; */
+}
+button.active {
+    color: white !important;
+    background-color: #8d2826 !important;
+}
+
+
+/* table */
+
+#table_wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+tbody tr,
+table thead {
+    transition: all 25ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+table thead:hover {
+    background-color: rgba(76, 73, 73, 0.37) !important;
+}
+tbody tr:hover {
+    background-color: rgba(181, 180, 180, 0.37) !important;
+}

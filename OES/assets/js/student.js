@@ -16,16 +16,36 @@ $(document).ready(()=>{
 
 async function loadData(url = null, table = null, callback = null) {
     if(!url) return;
+    
     if ($.fn.DataTable.isDataTable( "#" + table.attr("id") ) ) {
         $("#" + table.attr("id")).DataTable().destroy();
         $("#" + table.attr("id") + " tbody").remove();
     }
+    table.html('');
     await fetch(url)
     .then(response=>response.json())
     .then(data=>{
+        
+        let thead = `
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th style="text-align:center;">
+                    Name
+                </th>
+                <th>
+                    Strand / Course
+                </th>
+                <th>
+                    Grade
+                </th>
+            </tr>
+        </thead>
+        `;
         const students = data.data;
         let tbody = table.html();
-
         tbody += "<tbody>";
         for(let student of students){
             tbody += "<tr>";
@@ -39,8 +59,8 @@ async function loadData(url = null, table = null, callback = null) {
         }
 
         tbody += "</tbody>";
-
-        table.html(tbody);  
+        
+        table.html(thead + tbody);  
         new DataTable("#" + table.attr("id"));
         
         if(callback) callback();
@@ -171,9 +191,9 @@ function viewRecord(record_id){
 
 function toggle_id_column(element) {
 
-    $("#view-students").removeClass("hide"); // show the table
+    $("#view-students").removeClass("hide"); // show the t ble
 
-    if(element.id == "delete-btn") {
+    if(element.id == "v-pills-deletestudent-tab") {
         if(!$("#table").DataTable().column(0).visible()) {
             $("#table").DataTable().column(0).visible(1);
             $("#delete-student-btn").removeClass("hide");
@@ -189,7 +209,6 @@ function toggle_id_column(element) {
         $("#form-container").html("");
     }
     
-    toggle_active();
 }
 
 function delete_enrollee() {
@@ -215,10 +234,4 @@ function delete_enrollee() {
     })
 
     
-}
-
-function toggle_active() {
-    $("#view-btn").toggleClass("active");
-    $("#delete-btn").toggleClass("active");
-
 }

@@ -66,7 +66,20 @@ function load_header(String $title = "Document", Array $css = [], Array $js = []
     <!-- Custom JS -->
     <script>
         const base_url = "<?= BASE_PATH ?>";
+
+        const uid = "<?=$_SESSION['uid']?>";
     </script>
+    <?php
+        if(isset($_SESSION['role']) && $_SESSION['role'] == "A") {
+            ?>
+            <script>
+                let fname = "<?=$_SESSION['fname']?>";
+                let lname = "<?=$_SESSION['lname']?>";
+                let email = "<?=$_SESSION['email']?>";
+            </script>
+            <?php
+        }
+    ?>
 </head>
 
 

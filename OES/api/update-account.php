@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['lname'] = $_POST['lname'];
         $_SESSION['email'] = $_POST['email'];
 
-        echo json_encode(['result' => ['status' => $status]]);
+        echo json_encode(['result' => ['status' => $status, "user" => $_SESSION]]);
     } else {
         $status = "error";
         echo json_encode(['result' => ['status' => $status]]);

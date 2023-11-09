@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     $sql = "UPDATE `tb_form` as `tbf`
-            SET `tbf`.deleted_flg = '1'
+            SET `tbf`.deleted_flag = '1'
             WHERE `tbf`.id IN ({$data})
     ";
 

@@ -2,19 +2,19 @@
 require_once "constants.php";
 function load_footer(array $js = [])
 { ?>
-    
+
     <footer class="d-flex justify-center align-items-center">
         <h4 class="fw-bold">ABIS S.Y. 2023-2024</h3>
     </footer>
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-            <img src="./assets/images/DEPED.png" class="rounded me-2" alt="..." height="25" width="25">
-            <strong class="me-auto">ABIS</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <img src="./assets/images/DEPED.png" class="rounded me-2" alt="..." height="25" width="25">
+                <strong class="me-auto">ABIS</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-            <!-- Hello, world! This is a toast message. -->
+                <!-- Hello, world! This is a toast message. -->
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@ function load_footer(array $js = [])
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                
+
                 </div>
                 <div class="modal-footer" id="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -51,7 +51,7 @@ function load_footer(array $js = [])
             toast.show();
         }
 
-        function showModal(title, body, footer_content = [], flag="g", callback) {
+        function showModal(title, body, footer_content = [], flag = "g", callback) {
 
             $("#modal #modal-title").html('');
             $("#modal #modal-body").html('');
@@ -60,8 +60,8 @@ function load_footer(array $js = [])
             $("#trigger").trigger("click");
             $("#modal #modal-title").html(title);
             $("#modal #modal-body").html(body);
-            for(let content of footer_content) {
-                if(content == "close" || content == "cancel" || content == "no") $("#modal #modal-footer").append($(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${content}</button>`))
+            for (let content of footer_content) {
+                if (content == "close" || content == "cancel" || content == "no") $("#modal #modal-footer").append($(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${content}</button>`))
                 else {
                     const btn = $(`<button type="button" data-bs-dismiss="modal">${content}</button>`);
                     btn.on("click", callback);
@@ -69,9 +69,23 @@ function load_footer(array $js = [])
                     $("#modal #modal-footer").append(btn)
                 }
             }
-            
-            
-            
+        }
+
+        function submit(url = null, form, callback = null) {
+            if(!url || !callback) return;
+            fetch(url,
+                {
+                    method : form ? "post" : "get",
+                    body : form
+                }   
+            )
+            .then(resp=>resp.json())
+            .then(resp=>{
+                if(callback) callback(resp);
+            })
+            .catch(err=>{
+                console.log(err);
+            })
         }
     </script>
     <!-- BOOTSTRAP -->

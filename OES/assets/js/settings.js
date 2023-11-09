@@ -1,23 +1,197 @@
-$(document).ready(()=>{
-    $("#form-container").on("submit", function(e){
-        e.preventDefault();
-        
-        showModal("Update Account", "Are you sure to update your account ?", ['no','yes'], "g" ,function(){
-            const form = new FormData(document.getElementById("form-container"));
+$(document).ready(() => {
+  showUserProfile();
+});
 
-            fetch(base_url + "api/update-account.php",{
-                method : "post",
-                body : form
-            })
-            .then(response=>response.json())
-            .then(data=>{
-                const result = data.result;
-                showToast(result.status);
-            })
-            .catch(err=>{
-                console.log(err);
-            })
-        });
-        
-    })
-})
+function showUserProfile() {
+  $("form").removeClass("hide");
+  $("#table_wrapper").addClass("hide");
+  console.log($(".form-body").has("#user-profile").length < 1);
+  if ($(".form-body").has("#user-profile").length < 1) {
+    $("form > div.form-title").html(`
+              <h2>Account</h2>
+        `);
+    $("form > div.form-body").html(`
+          <div id="user-profile" class="d-flex justify-center flex-column align-items-center gap-2"> 
+              <input type="hidden" name="id" value="${uid}">
+              <span>
+                  <label for="fname" class="form-label">First Name</label>
+                  <input type="text" class="form-control" placeholder="Firstname" id="fname" name="fname" value="${
+                    fname ?? ""
+                  }">
+              </span>
+              <span>
+                  <label for="lname" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Lastname" id="lname" name="lname" value="${
+                    lname ?? ""
+                  }">
+              </span>
+              <span>
+                  <label for="uname" class="form-label">Email</label>
+                  <input type="text" class="form-control" placeholder="Email" id="email" name="email" value="${
+                    email ?? ""
+                  }">
+              </span>
+              <span>
+                  <button type="submit" class="btn btn-success">Save</button>
+              </span>
+          </div>
+          `);
+
+    $("form").on("submit", function (e) {
+      e.preventDefault();
+
+      showModal(
+        "Update Profile",
+        "Are you sure to update your profile ?",
+        ["no", "yes"],
+        "g",
+        function () {
+          const form = new FormData(document.querySelector("form"));
+          submit(base_url + "api/update-account.php", form, (data) => {
+            const { status, user } = data.result;
+            showToast(status);
+            fname = user.fname;
+            lname = user.lname;
+            email = user.email;
+          });
+        }
+      );
+    });
+  }
+}
+
+function showUserPassword() {
+  $("form").removeClass("hide");
+  $("#table_wrapper").addClass("hide");
+  if ($(".form-body").has("#user-password").length < 1) {
+    $("form > div.form-title").html(`
+        <h2>Password</h2>
+    `);
+
+    $("form > div.form-body").html(`
+    <div id="user-password" class="d-flex justify-center flex-column align-items-center gap-2"> 
+        <input type="hidden" name="id" value="${uid}">
+        <span>
+            <label for="oldpass" class="form-label">Old Password</label>
+            <input type="text" class="form-control" placeholder="Old Password" id="oldpass" name="oldpass">
+        </span>
+        <span>
+            <label for="newpass" class="form-label">New Password</label>
+            <input type="text" class="form-control" placeholder="New Password" id="newpass" name="newpass">
+        </span>
+        <span>
+            <label for="re-enter-pass" class="form-label">Re-Enter Password</label>
+            <input type="text" class="form-control" placeholder="Re-Enter Password" id="re-enter-pass" name="re-enter-pass">
+        </span>
+        <span>
+            <button type="submit" class="btn btn-success">Save</button>
+        </span>
+    </div>
+    `);
+
+    $("form").on("submit", function (e) {
+      e.preventDefault();
+
+      showModal(
+        "Update Password",
+        "Are you sure to update your password ?",
+        ["no", "yes"],
+        "g",
+        function () {
+          const form = new FormData(document.querySelector("form"));
+          submit(base_url + "api/update-account.php", form, (data) => {
+            const { status, user } = data.result;
+            showToast(status);
+            fname = user.fname;
+            lname = user.lname;
+            email = user.email;
+          });
+        }
+      );
+    });
+  }
+}
+
+function createUser() {
+  $("form").removeClass("hide");
+  $("#table_wrapper").addClass("hide");
+  if ($(".form-body").has("#new-user").length < 1) {
+    $("form > div.form-title").html(`
+            <h2>Create User</h2>
+        `);
+
+    $("form > div.form-body").html(`
+        <div id="new-user" class="d-flex justify-center flex-column align-items-center gap-2"> 
+            <input type="hidden" name="id" value="${uid}">
+            <span>
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname">
+            </span>
+            <span>
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname">
+            </span>
+            <span>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+            </span>
+            <span>
+                <label for="role" class="form-label">Role</label>
+                <select class="form-control" id="role" name="role">
+                    <option value="A">Admin</option>
+                    <option value="S">Student</option>
+                </select>
+            </span>
+            <span>
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
+            </span>
+            <span>
+                <label for="re-enter-pass" class="form-label">Re-Enter Password</label>
+                <input type="password" class="form-control" placeholder="Re-Enter Password" id="re-enter-pass" name="re-enter-pass">
+            </span>
+            <span>
+                <button type="submit" class="btn btn-success">Create</button>
+            </span>
+        </div>
+        `);
+  }
+}
+
+function viewUsers() {
+  $("form").addClass("hide");
+  $("table").removeClass("hide");
+
+  if ($.fn.DataTable.isDataTable( "#table" ) ) {
+    $("#table").DataTable().destroy();
+    $("#table" + " tbody").remove();
+}
+  const form = new FormData();
+  form.append("uid", uid);
+  submit(base_url + "api/all-users.php", form, (result)=>{
+    const users = result.data;
+    let columns = [];
+
+    let thead = "<thead><tr>";
+    let tbody = "<tbody>";
+
+    for(let user of users) {
+      tbody += "<tr>";
+        for(let key of Object.keys(user)) {
+          tbody+=`<td>${user[key]}</td>`;
+          if(!columns.includes(key)) columns.push(key);
+        }
+      tbody += "</tr>";
+    }
+
+    thead += columns.map(h=>`<th>${h}</th>`).join("");
+    thead += "</thead></thead>"
+
+    tbody += "</tbody>";
+    $("table").html(thead + tbody);
+
+    new DataTable($("table"));
+  })
+  
+  
+}
