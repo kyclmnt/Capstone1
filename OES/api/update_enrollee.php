@@ -20,10 +20,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = $conn->query($sql);
     if($query) {
         $status = "success";
-        echo json_encode(['result' => ['status' => $status]]);
+        echo json_encode(['result' => ['status' => $status, 'message' => 'Record updated successfully.']]);
     } else {
         $status = "error";
-        echo json_encode(['result' => ['status' => $status]]);
+        echo json_encode(['result' => ['status' => $status, 'message' => $conn->error]]);
     }
     
 }

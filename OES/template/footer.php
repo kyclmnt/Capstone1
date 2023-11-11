@@ -23,7 +23,7 @@ function load_footer(array $js = [])
 
     <!-- Modal -->
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">M</h5>
@@ -104,4 +104,4 @@ function load_footer(array $js = [])
         <script src="<?= base_url("assets/js/{$j}.js") ?>"> </script>
     <?php } ?>
 
-<?php } ?>
+<?php } ?>  

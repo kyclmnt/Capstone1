@@ -116,6 +116,10 @@ button.active {
     max-width: 100% !important;
 }
 
+table {
+    width: 100% !important;
+}
+
 tbody tr,
 table thead {
     transition: all 25ms cubic-bezier(0.165, 0.84, 0.44, 1);

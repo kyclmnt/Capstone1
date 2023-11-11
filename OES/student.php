@@ -31,8 +31,6 @@ load_header("Student", ["header", "student", "footer"], ["student"]);
             
         </div>
 
-        <form id="form-container" class="hide" method="post"></form>
-
     </section>
 
 </main>

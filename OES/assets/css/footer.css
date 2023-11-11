@@ -1,15 +1,51 @@
-footer{
-    background-color: #8d2826;
-    color: white;
-    letter-spacing: 2px;
-    padding: 10px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.50rem;
+footer {
+  background-color: #8d2826;
+  color: white;
+  letter-spacing: 2px;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .toast {
-    background-color: white !important;
+  background-color: white !important;
 }
+
+form {
+  overflow: hidden;
+  width: 100%;
+}
+.modal-content {
+  height: 80vh !important;
+  max-height: 100vh !important;
+  width: 50vw;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translate(-50%);
+  margin: 0 auto;
+}
+
+.modal-content {
+  overflow-y: scroll;
+}
+
+.modal-dialog{
+  position: static !important;
+}
+form span {
+  gap: 1rem;
+}
+form span > * {
+  width: 50%;
+}
+
+.box {
+  border: 1px solid black !important;
+  
+}
+ div#name > span > * {
+    width: 50% !important;
+ }
