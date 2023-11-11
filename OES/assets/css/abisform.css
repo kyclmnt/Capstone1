@@ -11,9 +11,12 @@ body {
     margin: 0;
     padding: 2px;
 }
+span{
+    width: 100%;
 
+}
 .head{
-    width: 985px;
+    width: 100%;
     font-size: 30px;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -29,11 +32,7 @@ img{
 }
 
 .box {
-    position: relative;
-    width: 500px;
-    height: 100px;
-    left: 400px;
-    top:-135px;
+    height: fit-content;
     border: 1px solid black;
     padding: 10px;
   }
@@ -62,7 +61,6 @@ hr.h{
 }
 hr.g{
     position: relative;
-    top: -130px;
     border-top: 2px solid black;
     border-bottom: none;
     border-left: none;
@@ -70,7 +68,6 @@ hr.g{
 }
 hr.i{
     position: relative;
-    top: -130px;
     border-top: 2px solid black;
     border-bottom: none;
     border-left: none;
@@ -79,13 +76,12 @@ hr.i{
 }
 .learner{
     position: relative;
-    top: -130px;
     text-align: center;  
 
 }
 .main {
     background-color: white;
-    width: 1000px;
+    width: 80%;
     margin: auto;
 }
 form{
@@ -101,8 +97,6 @@ form{
 }
 .schoolyear{
     position: relative;
-    left: 100px;
-    top: -20px;
 }
 .grade{
     margin-left: 3px;
@@ -141,31 +135,18 @@ form{
 }
 .PSA{
     margin-left: 3px;
-    margin-top: -130px;
     color: black;
     font-size: 16px;
     font-weight: 10;
 }
-.instruction{
-    position: relative;
-    top: -100px;
-}
-.instr{
-    position: relative;
-    top: -100px;
-}
 
 .PSANo{
     position: relative;
-    left: 400px;
-    top: -20px;
     font-size: 12px;
     width: 300px;
 }
 .LRNNo{
     position: relative;
-    left: 400px;
-    top: -20px;
     font-size: 12px;
     width: 300px;
 }
@@ -214,15 +195,11 @@ input{
 }
 .mothertounge{
     position: relative;
-    left: 450px;
-    top: -45px;
     font-size: 16px;
     width: 300px;   
 }
 .c{
     position: relative;
-    left: 570px;
-    top: -65px;
     font-size: 12px;
     width: 300px;
 }

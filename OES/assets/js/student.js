@@ -118,15 +118,15 @@ function viewRecord(record_id){
             
                 <div>
                     <p class="year">School Year</p>
-                    <input type="numeric" class="schoolyear" name="schoolyear" value='${student["schoolyear"]}' required />
+                    <input type="numeric" class="schoolyear" name="schoolyear" value='${student["schoolyear"]??""}' required />
                 </div>
                 
                 <p class="grade">Grade Level to Enroll</p>
                 <div required>
                 <select class="gradelevel">
                     <option>Choose an option</option>
-                    <option id="grade11" ${student["gradelevel"] == "11" ? "selected" : null} value="11">Grade 11</option>
-                    <option id="grade12" ${student["gradelevel"] == "12" ? "selected" : null} value="12">Grade 12</option>
+                    <option id="grade11" ${student["gradelevel"] == "11" ? "selected" : null} name="gradelevel" value="11">Grade 11</option>
+                    <option id="grade12" ${student["gradelevel"] == "12" ? "selected" : null} name="gradelevel" value="12">Grade 12</option>
                 </select>
                 </div>
                 <br>
@@ -135,19 +135,19 @@ function viewRecord(record_id){
 
                 <div class="lrn">
                 <p>1. With LRN?</p>
-                    <input type="radio" class="Ylrn" ${student['withlrn'] == "yes" ? "checked" : ""} name="lrn" id="Ylrn" value="yes">
+                    <input type="radio" class="Ylrn" ${student['withlrn'] == "yes" ? "checked" : ""} name="withlrn" id="Ylrn" value="yes">
                     <label for ="Ylrn">Yes</label>     
                 <br>
-                    <input type="radio" class="Ylrn" ${student['withlrn'] == "no" ? "checked" : ""} name="lrn" id="Nlrn"  value="no">
+                    <input type="radio" class="Ylrn" ${student['withlrn'] == "no" ? "checked" : ""} name="withlrn" id="Nlrn"  value="no">
                     <label for ="Nlrn">No</label>    
                 </div>
 
                 <div class="return">
                 <p>2. Returning (Balik Aral)</p>
-                    <input type="radio" ${student['returning'] == "yes" ? "checked" : ""} class="Yreturn" name="return" id="Yreturn" value="yes">    
+                    <input type="radio" ${student['returning'] == "yes" ? "checked" : ""} class="Yreturn" name="returning" id="Yreturn" value="yes">    
                     <label for ="Yreturn">Yes</label>
                 <br>
-                    <input type="radio" ${student['returning'] == "no" ? "checked" : ""} class="Yreturn" name="return" id="Nreturn" value="no">    
+                    <input type="radio" ${student['returning'] == "no" ? "checked" : ""} class="Yreturn" name="returning" id="Nreturn" value="no">    
                     <label for ="Nreturn">No</label>
                 </div>
             
@@ -163,9 +163,9 @@ function viewRecord(record_id){
                 <p class="learner"><b>LEARNER INFORMATION</b></p>
                 <hr class="i">
                 <p class="PSA">PSA Birth Certificate No. (if available upon registration)</p>
-                <input type="numeric" class="PSANo" name="PSA" value='${student['psa']}'>
+                <input type="numeric" class="PSANo" name="psa" value='${student['psa']}'>
                 <p class="LRN">Learner Reference No. (LRN)</p>
-                <input type="numeric" class="LRNNo" name="LRN" minlength="12" value='${student['lrn']}' />
+                <input type="numeric" class="LRNNo" name="lrn" minlength="12" value='${student['lrn']}' />
     
                 <br>
                 <div id="name">
@@ -182,7 +182,7 @@ function viewRecord(record_id){
                 <input type="text" class="c" name="mothertongue" id="mothertongue">
                 
                 <p class="date">Birthdate (dd/mm/yyyy)</p>
-                <input type="date" class="d" name="date" id="date"  />
+                <input type="date" class="d" name="birthdate" id="date"  />
                 
                 <p class="sex">Sex</p>
                 <select class="sx">
@@ -198,22 +198,22 @@ function viewRecord(record_id){
                 <p>Belonging to any Indigenous Peoples (IP) Community/Indigenous Cultural Community?</p>
                 </div>
                 <div class="ip">
-                    <input type="radio" name="IP" id="yIP" value="yes">
+                    <input type="radio" name="indegenous" id="yIP" value="yes">
                     <label for ="yIP">Yes</label>
-                    <input type="radio"  name="IP" id="nIP" value="no">
+                    <input type="radio"  name="indegenous" id="nIP" value="no">
                     <label for ="nIP">No</label> 
                 </div> 
                 <br>
                 <div class="specify">
                     <label for="specify">If Yes, Please specify:</label>
-                    <input type="text" class="spec" name="specify" id="specify">        
+                    <input type="text" class="spec" name="ipspecify" id="specify">        
                 </div>
 
                 <p class="4Ps">Is your family a beneficiary of 4Ps?</p>
                 <div class="y4Ps">
-                <input type="radio" name="4Ps" id="y4Ps" value="yes">
+                <input type="radio" name="4ps" id="y4Ps" value="yes">
                 <label for ="y4ps">Yes</label>
-                <input type="radio" name="4Ps" id="n4Ps" value="no">
+                <input type="radio" name="4ps" id="n4Ps" value="no">
                 <label for ="n4Ps">No</label>
                 </div>
                 <br>
@@ -229,54 +229,54 @@ function viewRecord(record_id){
                 <br>
                 <div class="housenum">
                 <label for="housenum">House No./Street</label>
-                <input type="text" name="housenum" id="housenum"  />
+                <input type="text" name="Chousenum" id="housenum"  />
                 <label for="streetname">Street Name</label>
-                <input type="text" name="street" id="street"  />
+                <input type="text" name="Cstreet" id="street"  />
                 <label for="barangay">Barangay</label>
-                <input type="text" name="brgy" id="brgy"  />
+                <input type="text" name="Cbrgy" id="brgy"  />
                 </div>
                 <br>
                 <label for="municipality">Municipality/City</label>
-                <input type="text" name="city" id="city"  />
+                <input type="text" name="Ccity" id="city"  />
                 <label for="province">Province</label>
-                <input type="text" name="prov" id="prov">
+                <input type="text" name="Cprovince" id="prov">
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country"  />
+                <input type="text" name="Ccountry" id="country"  />
                 <br>
                 <br>
                 <div class="zipcode">
                 <label for="zipcode">Zip Code</label>
-                <input type="numeric" name="zip" id="zip"  />
+                <input type="numeric" name="Czipcode" id="zip"  />
                 </div>
                 <br>
                 <br>
                 <p class="addr"><b>Permanent Address </b><i>(Same with your current address?)</i></p>
-                    <input type="radio" class="ycur" name="addr" id="addr">
+                    <input type="radio" class="ycur" name="perma" id="addr">
                     <label for ="Ycurrent">Yes</label>
-                    <input type="radio" class="ycur" name="addr" id="addr">
+                    <input type="radio" class="ycur" name="perma" id="addr">
                     <label for ="Ncurrent">No</label>
                     <br>
                 <br>
                 <!--Dapat di na to pwede mafill up-an kapag yes ang sinelect sa permanent add-->
                 <div class="housenum">
                 <label for="housenum">House No./Street</label>
-                <input type="text" name="housenum" id="housenum">
+                <input type="text" name="Phousenum" id="housenum">
                 <label for="streetname">Street Name</label>
-                <input type="text" name="street" id="street">
+                <input type="text" name="Pstreet" id="street">
                 <label for="barangay">Barangay</label>
-                <input type="text" name="brgy" id="brgy">
+                <input type="text" name="Pbrgy" id="brgy">
                 </div>
                 <br>
                 <label for="municipality">Municipality/City</label>
-                <input type="text" name="city" id="city">
+                <input type="text" name="Pcity" id="city">
                 <label for="province">Province</label>
-                <input type="text" name="prov" id="prov">
+                <input type="text" name="Pprovince" id="prov">
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country">
+                <input type="text" name="Pcountry" id="country">
                 <br>
                 <br>
                 <label for="zipcode">Zip Code</label>
-                <input type="numeric" name="zip" id="zip">
+                <input type="numeric" name="Pzipcode" id="zip">
                 <br>
                 <br>
                 
@@ -286,29 +286,29 @@ function viewRecord(record_id){
                 <hr class="p">
                 <div class="faname">
                     <p class="name">Father's Name</p>
-                    <input type="text" name="lname" id="lname" placeholder="Last Name"  />
-                    <input type="text" name="fname" id="fname" placeholder="First Name"  />
-                    <input type="text" name="mname" id="mname" placeholder="Middle Name"  />
+                    <input type="text" name="Flastname" id="lname" placeholder="Last Name"  />
+                    <input type="text" name="Ffirstname" id="fname" placeholder="First Name"  />
+                    <input type="text" name="Fmiddlename" id="mname" placeholder="Middle Name"  />
                     <label for="contact">Contact Number</label>
-                    <input type="numeric" name="contact" id="contact">
+                    <input type="numeric" name="Fcontact" id="contact">
                 </div>
                 
                 <div id="moname">
                     <p class="name">Mother's Maiden  Name</p>
-                    <input type="text" name="lname" id="lname" placeholder="Last Name"  />
-                    <input type="text" name="fname" id="fname" placeholder="First Name"  />
-                    <input type="text" name="mname" id="mname" placeholder="Middle Name"  />
+                    <input type="text" name="Mlastname" id="lname" placeholder="Last Name"  />
+                    <input type="text" name="Mfirstname" id="fname" placeholder="First Name"  />
+                    <input type="text" name="Mmiddlename" id="mname" placeholder="Middle Name"  />
                     <label for="contact">Contact Number</label>
-                    <input type="numeric" name="contact" id="contact">
+                    <input type="numeric" name="Mcontact" id="contact">
                 </div>
                 
                 <div id="gname">
                     <p class="name">Guardian's Name</p>
-                    <input type="text" class="plname" name="lname" id="lname" placeholder="Last Name"  />
-                    <input type="text" class="pfname" name="fname" id="fname" placeholder="First Name"  />
-                    <input type="text" class="pmname" name="mname" id="mname" placeholder="Middle Initial" />
+                    <input type="text" class="plname" name="Gcontact" id="lname" placeholder="Last Name"  />
+                    <input type="text" class="pfname" name="Gcontact" id="fname" placeholder="First Name"  />
+                    <input type="text" class="pmname" name="Gcontact" id="mname" placeholder="Middle Initial" />
                     <label for="contact">Contact Number</label>
-                    <input type="numeric" name="contact" id="contact"  />
+                    <input type="numeric" name="Gcontact" id="contact"  />
                 </div>
                 <br>
                 <br>
@@ -317,9 +317,9 @@ function viewRecord(record_id){
                 <hr class="r">
                 <br>
                 <label for="lastgrd">Last Grade Level Completed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="lastgrd" id="lastgrd">
+                <input type="text" name="lastgrdlvl" id="lastgrd">
                 <label for="lastSY">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last School Year Completed</label>
-                <input type="text" name="lastSY" id="lastSY">
+                <input type="text" name="lastschoolyr" id="lastSY">
                 <br>
                 <br>
                 <label for="lastschool">Last School Attended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -336,8 +336,8 @@ function viewRecord(record_id){
                     <p class="semester">Semester</p>
                     <select class="sem">
                         <option>Choose an option</option>
-                        <option name="first" id="first">1st Sem</option>
-                        <option name="second" id="second">2nd Sem</option>
+                        <option name="semester" id="first">1st Sem</option>
+                        <option name="semester" id="second">2nd Sem</option>
                     </select>
 
                 <div class="track"> 
@@ -354,7 +354,7 @@ function viewRecord(record_id){
                 <i>Choose all that applies</i>
                 </div>
                 <div class="check">
-                    <input type="checkbox" name="modularp" id="modularp">
+                    <input type="checkbox" name="modularprint" id="modularp">
                     <label for="modularp">Modular(Print)</label>
                     
                     <input type="checkbox" class="one" name="online" id="online">
@@ -366,13 +366,13 @@ function viewRecord(record_id){
                     <input type="checkbox" name="blended" id="blended">
                     <label for="blended">Blended</label>
                     
-                    <input type="checkbox" class="three" name="modulard" id="modulard">
+                    <input type="checkbox" class="three" name="modulardigital" id="modulard">
                     <label for="modulard" class="three">Modular(Digital)</label>
                     
-                    <input type="checkbox"  class="four" name="educationtv" id="educationtv">
+                    <input type="checkbox"  class="four" name="eductv" id="educationtv">
                     <label for="educationtv" class="four">Educational Television</label>
                     <br>
-                    <input type="checkbox" name="homeschooling" id="homeschooling">
+                    <input type="checkbox" name="homeschool" id="homeschooling">
                     <label for="homeschooling">Homeschooling</label>
                     
                     <input type="checkbox"  class="five" name="facetoface" id="facetoface">
