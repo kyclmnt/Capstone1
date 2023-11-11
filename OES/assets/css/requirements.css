@@ -1,0 +1,12 @@
+body{
+    background-image: url(requirements.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+a{
+    text-decoration: none;
+    size: 10px;
+}
+.icon{
+    size: 10px;
+}

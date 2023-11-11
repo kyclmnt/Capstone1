@@ -1,6 +1,6 @@
 <?php
 require "./template/head.php";
-load_header("Settings", ["main", "settings", "footer"], ["settings"]);
+load_header("ABIS | Settings", ["main", "settings", "footer"], ["settings"]);
 
 ?>
 <main>

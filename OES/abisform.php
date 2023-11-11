@@ -4,7 +4,7 @@ require "./db/conn.php";
 require "./template/head.php";
 
 
-load_header("Abis Form", ["header","abisform", "footer"], [""]);
+load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], [""]);
 ?>
     <main>
         <form action="./abisform.php" method="POST"> 
@@ -320,8 +320,7 @@ load_header("Abis Form", ["header","abisform", "footer"], [""]);
         $sql = "INSERT INTO tb_form SET {$data}"; 
         // echo $sql; die;
         if (mysqli_query($conn,$sql)) {
-            echo "true";
-            die;
+
             mysqli_close($conn);
         }
     }

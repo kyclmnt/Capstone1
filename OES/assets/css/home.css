@@ -30,12 +30,10 @@ form{
 }
 
 #btn {
-
     display:flex;
     justify-content: space-evenly;
     width: 100%;    
     flex-wrap: wrap;
-
     gap: 30px;
 }
 #btn > span {
