@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function() {
+
     var last_time_updated = document.querySelector(".time-frame");
     const enrollees_cont = document.getElementById("enrollees-chart");
     const enrollees_by_gender_cont = document.getElementById("enrollees-gender-chart");
@@ -8,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let enrollees_chart = new ChartJS(enrollees_cont, {type : "bar", options : {responsive : false, plugins : { legend : { position : "bottom" }} }});
     let enrollees_by_gender_chart = new ChartJS(enrollees_by_gender_cont, {type : "pie", options : {responsive : true, plugins : { legend : { position : "bottom" }} }});
     let enrollees_by_grdlvl_chart = new ChartJS(enrollees_by_grdlvl_cont, {type : "pie", options : {responsive : true, plugins : { legend : { position : "bottom" }} }});
+    console.log($("header a.nav-link"));
+    $("header a.nav-link").each(function(i){
+        $(this).removeClass("active");
+    })
+    $("a#dashboard").addClass('active');
 
     // chart.addDataset({
     //     label: 'GAS',
@@ -147,6 +153,7 @@ class ChartJS extends Chart {
             for(let d of data) {
                 external_data_labels.add(d["x"]);
             }
+            // console.log();
 
             // delete the label and the dataset in the chart object if it is not exist in external data
             this.data.labels.forEach((val, index)=>{
@@ -155,18 +162,26 @@ class ChartJS extends Chart {
                     delete this.data.datasets[index];
                 }
             })
-            
+            // console.log(this.data.labels);
             // remove the `empty` data in labels 
             this.data.labels = this.data.labels.filter(d => !d);
+            
 
             for(let d of data) {
-                if(!this.data.labels.includes(d["x"])) this.data.labels.push(d["x"]);
+                if(!this.data.labels.includes(d["x"])) {
+                    if(d["x"] === "GRADE 11" || d["x"] === "Female") this.data.labels[1] = d["x"];
+                    else if(d["x"] === "GRADE 12" || d["x"] === "Male") this.data.labels[0] = d["x"];
+                } 
     
                 const pos = this.data.labels.indexOf(d["x"]);
     
-                if(this.data.datasets.length < 1) this.data.datasets[0] = {data : [], backgroundColor : ["#c08080" , "#993333"]};
-    
+                if(this.data.datasets.length < 1) this.data.datasets[0] = {data : [], backgroundColor : ["#c08080", "#993333"]};
                 this.data.datasets[0].data[pos] = d["y"];
+
+                // console.log(this.config.type, this.data.datasets[0].data, this.data.datasets[0].data.length)
+
+                
+
             }
             this.update();
         }

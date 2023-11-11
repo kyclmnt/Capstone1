@@ -1,6 +1,6 @@
 <?php 
 require "./template/head.php";
-
+if(!isset($_SESSION) || $_SESSION['role'] != "A") header("Location:home.php");
 load_header("Dashboard", ["dashboard","header"], ["dashboard"]);
 ?>
 

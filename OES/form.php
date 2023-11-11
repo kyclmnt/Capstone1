@@ -24,7 +24,6 @@ if(isset($_POST["submit"])){
 require "./template/head.php";
 load_header("RegiForm",["main","form", "home" ,"footer"],["settings"]);
 ?>
-    <?php include "./includes/header.php"; ?>
     <main>
         <form action="form.php" method="post">
             <h3>

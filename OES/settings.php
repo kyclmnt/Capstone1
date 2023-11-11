@@ -20,9 +20,9 @@ load_header("Settings", ["main", "settings", "footer"], ["settings"]);
                     <li class="nav-item dropdown">
                         <!-- <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a> -->
                         <button class="nav-link dropdown-toggle" id="v-pills-manageusers-tab" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-users"></i> Manage User</button>
-                        <ul class="dropdown-menu">
-                            <li><button class="nav-link dropdown-item" onclick="viewUsers()">View User</button></li>
-                            <li><button class="nav-link dropdown-item" onclick="createUser()">Create new User</button></li>
+                        <ul class="dropdown-menu nav-pills">
+                            <li><button id="v-pills-viewuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-viewuser"  data-bs-toggle="pill" onclick="viewUsers()">View User</button></li>
+                            <li><button id="v-pills-createuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-createuserd" data-bs-toggle="pill" onclick="createUser()">Create new User</button></li>
                         </ul>
                     </li>
                 </ul>

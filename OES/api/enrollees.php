@@ -9,21 +9,7 @@ $query = null;
 if(isset($_POST['id'])) {
     $id = $_POST['id'];
     $sql = "SELECT 
-            `tbf`.id as 'id',
-            CASE
-                WHEN TRIM(CONCAT(`tbf`.firstname, ' ',`tbf`.lastname)) = '' THEN '--'
-                ELSE CONCAT(`tbf`.firstname, ' ',`tbf`.lastname)
-            END as 'name',
-            `tbf`.`lrn`,
-            `tbf`.`strand` as 'strand',
-            `tbf`.`track` as 'track',
-            `tbf`.`gradelevel` as 'gradelevel',
-            CASE 
-                WHEN `tbf`.`sex` = 'F' THEN 'Female'
-                ELSE 'Male'
-            END as 'sex',
-            `tbf`.`placeofbirth`,
-            CONCAT(`tbf`.Cbrgy, ' ', `tbf`.`Chousenum`, ' ', `tbf`.`Cstreet`, ' ', `tbf`.`Ccity`) as 'addr'
+            *
             FROM `tb_form` `tbf`
             WHERE `tbf`.id  = {$id} AND `tbf`.deleted_flag = '0'";
 } else {

@@ -36,7 +36,7 @@ load_header("Login", ['login'], []);
             </button>
         </form>
         <a href="home.php" id="btn-fquestion">
-            <i class="fa fa-reply"></i>
+            <i class="fa-solid fa-share"></i>
         </a>
 
     </div>
@@ -75,10 +75,12 @@ if (isset($_POST["submit"])) {
 
         if ($_SESSION["role"] == "S") {
             // var_dump($_SESSION); die;
-            header("Location:abisform.php");
+            echo "<script>window.location.href = '".BASE_PATH."abiform.php'</script>";
         } elseif ($_SESSION["role"] == "A") {
             // var_dump($_SESSION);
-            header("Location:dashboard.php"); #dashboard.php 
+            echo "<script>window.location.href = '".BASE_PATH."dashboard.php'</script>";
+        } else {
+            echo "<script>window.location.href = '".BASE_PATH."dashboard.php'</script>";
         }
     }
 }

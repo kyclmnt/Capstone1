@@ -1,6 +1,5 @@
 <?php
 require "./template/head.php";
-unset($_SESSION["role"]);
 
 load_header("Home", ["header","home", "footer"], [""]);
 ?>

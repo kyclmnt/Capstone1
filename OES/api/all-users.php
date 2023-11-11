@@ -13,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 `email` as "Username",
                 CASE 
                     WHEN `role` = "A" THEN "ADMIN"
+                    WHEN `role` = "F" THEN "FACULTY"
                     ELSE "STUDENT"
                 END as "Role"
             FROM `tb_user_acc` `tua` WHERE `tua`.id <> "'.$uid.'"';

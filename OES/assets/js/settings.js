@@ -1,8 +1,14 @@
 $(document).ready(() => {
+  $("header a.nav-link").each(function (i) {
+    $(this).removeClass("active");
+  });
+
+  $("a#settings").addClass("active");
   showUserProfile();
 });
 
 function showUserProfile() {
+  $("form").off("submit");
   $("form").removeClass("hide");
   $("#table_wrapper").addClass("hide");
   console.log($(".form-body").has("#user-profile").length < 1);
@@ -48,11 +54,10 @@ function showUserProfile() {
         function () {
           const form = new FormData(document.querySelector("form"));
           submit(base_url + "api/update-account.php", form, (data) => {
-            const { status, user } = data.result;
-            showToast(status);
-            fname = user.fname;
-            lname = user.lname;
-            email = user.email;
+            showToast(data.result);
+            fname = data.result.fname;
+            lname = data.result.lname;
+            email = data.result.email;
           });
         }
       );
@@ -61,6 +66,7 @@ function showUserProfile() {
 }
 
 function showUserPassword() {
+  $("form").off("submit");
   $("form").removeClass("hide");
   $("#table_wrapper").addClass("hide");
   if ($(".form-body").has("#user-password").length < 1) {
@@ -99,12 +105,8 @@ function showUserPassword() {
         "g",
         function () {
           const form = new FormData(document.querySelector("form"));
-          submit(base_url + "api/update-account.php", form, (data) => {
-            const { status, user } = data.result;
-            showToast(status);
-            fname = user.fname;
-            lname = user.lname;
-            email = user.email;
+          submit(base_url + "api/update-password.php", form, (data) => {
+            showToast(data.result);
           });
         }
       );
@@ -113,6 +115,7 @@ function showUserPassword() {
 }
 
 function createUser() {
+  $("form").off("submit");
   $("form").removeClass("hide");
   $("#table_wrapper").addClass("hide");
   if ($(".form-body").has("#new-user").length < 1) {
@@ -139,12 +142,13 @@ function createUser() {
                 <label for="role" class="form-label">Role</label>
                 <select class="form-control" id="role" name="role">
                     <option value="A">Admin</option>
+                    <option value="F">Faculty</option>
                     <option value="S">Student</option>
                 </select>
             </span>
             <span>
-                <label for="pass" class="form-label">Password</label>
-                <input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Password" id="password" name="password">
             </span>
             <span>
                 <label for="re-enter-pass" class="form-label">Re-Enter Password</label>
@@ -155,6 +159,15 @@ function createUser() {
             </span>
         </div>
         `);
+
+    $("form").on("submit", function (e) {
+      e.preventDefault();
+
+      const form = new FormData(document.querySelector("form"));
+      submit(base_url + "api/create-user.php", form, (data) => {
+        showToast(data.result);
+      });
+    });
   }
 }
 
@@ -162,36 +175,34 @@ function viewUsers() {
   $("form").addClass("hide");
   $("table").removeClass("hide");
 
-  if ($.fn.DataTable.isDataTable( "#table" ) ) {
+  if ($.fn.DataTable.isDataTable("#table")) {
     $("#table").DataTable().destroy();
     $("#table" + " tbody").remove();
-}
+  }
   const form = new FormData();
   form.append("uid", uid);
-  submit(base_url + "api/all-users.php", form, (result)=>{
+  submit(base_url + "api/all-users.php", form, (result) => {
     const users = result.data;
     let columns = [];
 
     let thead = "<thead><tr>";
     let tbody = "<tbody>";
 
-    for(let user of users) {
+    for (let user of users) {
       tbody += "<tr>";
-        for(let key of Object.keys(user)) {
-          tbody+=`<td>${user[key]}</td>`;
-          if(!columns.includes(key)) columns.push(key);
-        }
+      for (let key of Object.keys(user)) {
+        tbody += `<td>${user[key]}</td>`;
+        if (!columns.includes(key)) columns.push(key);
+      }
       tbody += "</tr>";
     }
 
-    thead += columns.map(h=>`<th>${h}</th>`).join("");
-    thead += "</thead></thead>"
+    thead += columns.map((h) => `<th>${h}</th>`).join("");
+    thead += "</thead></thead>";
 
     tbody += "</tbody>";
     $("table").html(thead + tbody);
 
-    new DataTable($("table"));
-  })
-  
-  
+    $("table").dataTable();
+  });
 }

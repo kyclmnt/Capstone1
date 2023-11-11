@@ -10,7 +10,7 @@ function load_footer(array $js = [])
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="./assets/images/DEPED.png" class="rounded me-2" alt="..." height="25" width="25">
-                <strong class="me-auto">ABIS</strong>
+                <strong class="me-auto"></strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
@@ -44,15 +44,16 @@ function load_footer(array $js = [])
 
     </html>
     <script>
-        function showToast(message) {
+        function showToast(content) {
+            console.log(content);
             var toastLiveExample = $('#liveToast');
             var toast = new bootstrap.Toast(toastLiveExample);
-            $('#liveToast').find('.toast-body').html(message);
+            $('#liveToast').find('.toast-header > strong').html(content.status)
+            $('#liveToast').find('.toast-body').html(content.message);
             toast.show();
         }
 
         function showModal(title, body, footer_content = [], flag = "g", callback) {
-
             $("#modal #modal-title").html('');
             $("#modal #modal-body").html('');
             $("#modal #modal-footer").html('');
@@ -61,7 +62,9 @@ function load_footer(array $js = [])
             $("#modal #modal-title").html(title);
             $("#modal #modal-body").html(body);
             for (let content of footer_content) {
-                if (content == "close" || content == "cancel" || content == "no") $("#modal #modal-footer").append($(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${content}</button>`))
+                const first_letter = content[0].toUpperCase();
+                content = first_letter + content.slice(1);
+                if (content.toLowerCase() == "close" || content.toLowerCase() == "cancel" || content.toLowerCase() == "no") $("#modal #modal-footer").append($(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${content}</button>`))
                 else {
                     const btn = $(`<button type="button" data-bs-dismiss="modal">${content}</button>`);
                     btn.on("click", callback);
