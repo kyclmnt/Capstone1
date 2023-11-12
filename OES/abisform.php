@@ -4,7 +4,7 @@ require "./db/conn.php";
 require "./template/head.php";
 
 
-load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], [""], false);
+load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisform"], false);
 ?>
 <main>
     <form action="./abisform.php" method="POST" class="border border-dark" id="abis-form-container">
