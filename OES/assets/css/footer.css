@@ -35,10 +35,10 @@ form {
 .modal-dialog{
   position: static !important;
 }
-form span {
+form#form-container span {
   gap: 1rem;
 }
-form span > * {
+form#form-container span > * {
   width: 50%;
 }
 
