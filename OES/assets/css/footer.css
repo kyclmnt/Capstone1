@@ -19,15 +19,15 @@ form {
   width: 100%;
 }
 .modal-content {
-  height: 80vh !important;
+  height: fit-content !important;
   max-height: 100vh !important;
   width: 50vw;
   position: absolute !important;
-  left: 50% !important;
+  top: 0;
+  left: 50%;
   transform: translate(-50%);
   margin: 0 auto;
 }
-
 .modal-content {
   overflow-y: scroll;
 }
@@ -37,6 +37,7 @@ form {
 }
 form#form-container span {
   gap: 1rem;
+  padding: 30px;
 }
 form#form-container span > * {
   width: 50%;
