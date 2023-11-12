@@ -3,7 +3,7 @@ require "./template/head.php";
 
 if(!isset($_SESSION['role'])) header("Location:login.php");
 
-load_header("Student", ["header", "student", "footer"], ["student"]);
+load_header("ABIS | Student", ["header", "student", "footer"], ["student"]);
 
 ?>
 <main>

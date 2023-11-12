@@ -4,7 +4,7 @@ if(!isset($_SESSION['role'])) { header("Location:login.php"); die;}
 
 if($_SESSION['role'] != "A") header("Location:home.php");
 
-load_header("Dashboard", ["dashboard","header"], ["dashboard"]);
+load_header("ABIS | Dashboard", ["dashboard","header"], ["dashboard"]);
 ?>
 
     <main>

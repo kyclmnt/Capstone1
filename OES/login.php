@@ -7,7 +7,7 @@ if(isset($_SESSION['role'])) {
     echo "<script>window.location</script>";
 }
 
-load_header("Login", ['login'], []);
+load_header("ABIS | Login", ['login'], []);
 ?>
 
 <main>
@@ -78,7 +78,7 @@ if (isset($_POST["submit"])) {
 
         if ($_SESSION["role"] == "S") {
             // var_dump($_SESSION); die;
-            echo "<script>window.location.href = '".BASE_PATH."abiform.php'</script>";
+            echo "<script>window.location.href = '".BASE_PATH."abisform.php'</script>";
         } elseif ($_SESSION["role"] == "A") {
             // var_dump($_SESSION);
             echo "<script>window.location.href = '".BASE_PATH."dashboard.php'</script>";

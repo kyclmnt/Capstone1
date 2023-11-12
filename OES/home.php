@@ -1,7 +1,7 @@
 <?php
 require "./template/head.php";
 
-load_header("Home", ["header","home", "footer"], [""]);
+load_header("ABIS | Home", ["header","home", "footer"], [""]);
 ?>
 
     <main>
@@ -18,12 +18,12 @@ load_header("Home", ["header","home", "footer"], [""]);
             </h3>
             <div id="btn">
                 <span>
-                    <a href="" >
+                    <a href="requirements.html" >
                         Requirements
                     </a>
                 </span>
                 <span>
-                    <a href="course.php">
+                    <a href="course.html">
                         Strand Offerings
                     </a>
                 </span>

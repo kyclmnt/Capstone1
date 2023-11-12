@@ -22,7 +22,7 @@ if(isset($_POST["submit"])){
 // $conn = mysqli_connect('localhost', 'root', '', 'db_abis');
 
 require "./template/head.php";
-load_header("RegiForm",["main","form", "home" ,"footer"],["settings"]);
+load_header("ABIS | Register",["main","form", "home" ,"footer"],["settings"]);
 ?>
     <main>
         <form action="form.php" method="post">
