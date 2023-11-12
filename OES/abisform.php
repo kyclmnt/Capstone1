@@ -28,8 +28,8 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <p class="grade">Grade Level to Enroll</p>
                         <select class="gradelevel form-control">
                             <option>Choose an option</option>
-                            <option id="grade11" value="grade11">Grade 11</option>
-                            <option id="grade12" value="grade12">Grade 12</option>
+                            <option id="grade11" value="grade11" name="gradelevel">Grade 11</option>
+                            <option id="grade12" value="grade12" name="gradelevel">Grade 12</option>
                         </select>
                     </div>
                 </span>
@@ -39,11 +39,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <div class="lrn flex-grow-1">
                             <p>1. With LRN?</p>
                             <span>
-                                <input type="radio" class="Ylrn form-check-input" name="lrn" id="Ylrn" value="yes">
+                                <input type="radio" class="Ylrn form-check-input" name="withlrn" id="Ylrn" value="yes">
                                 <label for="Ylrn">Yes</label>
                             </span>
                             <span>
-                                <input type="radio" class="Ylrn form-check-input" name="lrn" id="Nlrn" value="no">
+                                <input type="radio" class="Ylrn form-check-input" name="withlrn" id="Nlrn" value="no">
                                 <label for="Nlrn">No</label>
                             </span>
                         </div>
@@ -51,11 +51,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <div class="return flex-grow-1">
                             <p>2. Returning (Balik Aral)</p>
                             <span>
-                                <input type="radio" class="Yreturn form-check-input" name="return" id="Yreturn" value="yes">
+                                <input type="radio" class="Yreturn form-check-input" name="returning" id="Yreturn" value="yes">
                                 <label for="Yreturn">Yes</label>
                             </span>
                             <span>
-                                <input type="radio" class="Yreturn form-check-input" name="return" id="Nreturn" value="no">
+                                <input type="radio" class="Yreturn form-check-input" name="returning" id="Nreturn" value="no">
                                 <label for="Nreturn">No</label>
                             </span>
 
@@ -78,11 +78,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
             <div class="learner-information d-flex flex-column gap-3">
                 <span class="d-flex form-group">
                     <label class="PSA form-label" for="PSANo" style="width: 50%;">PSA Birth Certificate No. (if available upon registration)</label>
-                    <input type="numeric" id="PSANo" style="width: 50%;" class="PSANo form-control" name="PSA">
+                    <input type="numeric" id="PSANo" style="width: 50%;" class="PSANo form-control" name="psa">
                 </span>
                 <span class="d-flex form-group">
                     <label class="LRN" style="width: 50%;">Learner Reference No. (LRN)</label>
-                    <input type="numeric" style="width: 50%;" class="LRNNo form-control" name="LRN" minlength="12" />
+                    <input type="numeric" style="width: 50%;" class="LRNNo form-control" name="lrn" minlength="12" />
                 </span>
                 <div id="name form-group d-flex flex-column align-items-center">
                     <p class="name">Full Name</p>
@@ -109,7 +109,7 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                 <div class="d-flex gap-3">
                     <span class="d-flex align-items-center form-group flex-grow-1">
                         <p class="date">Birthdate (dd/mm/yyyy)</p>
-                        <input type="date" class="d form-control" name="date" id="date" />
+                        <input type="date" class="d form-control" name="birthdate" id="date" />
                     </span>
                     <span class="d-flex align-items-center form-group flex-grow-1">
                         <p class="sex">Sex</p>
@@ -131,18 +131,18 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <p>Belonging to any Indigenous Peoples (IP) Community/Indigenous Cultural Community?</p>
                         <div class="d-flex gap-4">
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="IP" id="yIP" value="yes">
+                                <input type="radio" class="form-check-input" name="indegenous" id="yIP" value="yes">
                                 <label for="yIP">Yes</label>
                             </span>
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="IP" id="nIP" value="no">
+                                <input type="radio" class="form-check-input" name="indegenous" id="nIP" value="no">
                                 <label for="nIP">No</label>
                             </span>
                         </div>
                     </div>
                     <span class="d-flex flex-column  justify-center form-group">
                         <label for="specify">If Yes, Please specify:</label>
-                        <input type="text" class="spec form-control" name="specify" id="specify">
+                        <input type="text" class="spec form-control" name="ipspecify" id="specify">
                     </span>
                 </span>
 
@@ -153,11 +153,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <p class="4Ps">Is your family a beneficiary of 4Ps?</p>
                         <div class="y4Ps d-flex gap-4">
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="4Ps" id="y4Ps" value="yes">
+                                <input type="radio" class="form-check-input" name="4ps" id="y4Ps" value="yes">
                                 <label for="y4ps">Yes</label>
                             </span>
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="4Ps" id="n4Ps" value="no">
+                                <input type="radio" class="form-check-input" name="4ps" id="n4Ps" value="no">
                                 <label for="n4Ps">No</label>
                             </span>
                         </div>
@@ -252,30 +252,30 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                 <div class="faname" class="d-flex flex-column justify-content-center">
                     <p class="name">Father's Name</p>
                     <span class="d-flex gap-3">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" />
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" />
-                        <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Name" />
-                        <input type="numeric" class="form-control" name="contact" id="contact" placeholder="Contact Number">
+                        <input type="text" class="form-control" name="Flastname" id="lname" placeholder="Last Name" />
+                        <input type="text" class="form-control" name="Ffirstname" id="fname" placeholder="First Name" />
+                        <input type="text" class="form-control" name="Fmiddlename" id="mname" placeholder="Middle Name" />
+                        <input type="numeric" class="form-control" name="Fcontact" id="contact" placeholder="Contact Number">
                     </span>
                 </div>
 
                 <div id="moname" class="d-flex flex-column justify-content-center">
                     <p class="name">Mother's Maiden Name</p>
                     <span class="d-flex gap-3">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" />
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" />
-                        <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Name" />
-                        <input type="numeric" class="form-control" name="contact" id="contact" placeholder="Contact Number">
+                        <input type="text" class="form-control" name="Mlastname" id="lname" placeholder="Last Name" />
+                        <input type="text" class="form-control" name="Mfirstname" id="fname" placeholder="First Name" />
+                        <input type="text" class="form-control" name="Mmiddlename" id="mname" placeholder="Middle Name" />
+                        <input type="numeric" class="form-control" name="Mcontact" id="contact" placeholder="Contact Number">
                     </span>
                 </div>
 
                 <div id="gname" class="d-flex flex-column justify-content-center">
                     <p class="name">Guardian's Name</p>
                     <span class="d-flex gap-3">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" />
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" />
-                        <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Initial" />
-                        <input type="numeric" class="form-control" name="contact" id="contact" placeholder="Contact Number" />
+                        <input type="text" class="form-control" name="Glastname" id="lname" placeholder="Last Name" />
+                        <input type="text" class="form-control" name="Gfirstname" id="fname" placeholder="First Name" />
+                        <input type="text" class="form-control" name="Gmiddlename" id="mname" placeholder="Middle Initial" />
+                        <input type="numeric" class="form-control" name="Gcontact" id="contact" placeholder="Contact Number" />
                     </span>
                 </div>
             </div>
@@ -286,11 +286,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                 <div class="d-flex gap-3">
                     <span class="flex-grow-1">
                         <label for="lastgrd">Last Grade Level Completed</label>
-                        <input type="text" class="form-control" name="lastgrd" id="lastgrd">
+                        <input type="text" class="form-control" name="lastgrdlvl" id="lastgrd">
                     </span>
                     <span class="flex-grow-1">
                         <label for="lastSY">Last School Year Completed</label>
-                        <input type="text" class="form-control" name="lastSY" id="lastSY">
+                        <input type="text" class="form-control" name="lastschoolyr" id="lastSY">
                     </span>
                 </div>
                 <div class="d-flex gap-3">
@@ -312,8 +312,8 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <p class="semester">Semester</p>
                         <select class="form-control">
                             <option>Choose an option</option>
-                            <option name="first" id="first">1st Sem</option>
-                            <option name="second" id="second">2nd Sem</option>
+                            <option name="semester" id="first">1st Sem</option>
+                            <option name="semester" id="second">2nd Sem</option>
                         </select>
                     </span>
                     <span class="d-flex align-items-center flex-grow-1 gap-3">
@@ -336,7 +336,7 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                 <div class="check d-flex">
                     <div class="flex-grow-1 d-flex flex-column gap-3">
                         <span>
-                            <input type="checkbox" class="form-check-input" name="modularp" id="modularp">
+                            <input type="checkbox" class="form-check-input" name="modularprint" id="modularp">
                             <label for="modularp">Modular(Print)</label>
                         </span>
                         <span>
@@ -354,17 +354,17 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                             <label for="blended">Blended</label>
                         </span>
                         <span>
-                            <input type="checkbox" class="form-check-input" name="modulard" id="modulard">
+                            <input type="checkbox" class="form-check-input" name="modulardigital" id="modulard">
                             <label for="modulard" class="three">Modular(Digital)</label>
                         </span>
                         <span>
-                            <input type="checkbox" class="form-check-input" name="educationtv" id="educationtv">
+                            <input type="checkbox" class="form-check-input" name="eductv" id="educationtv">
                             <label for="educationtv" class="four">Educational Television</label>
                         </span>
                     </div>
                     <div class="flex-grow-1 d-flex flex-column gap-3">
                         <span>
-                            <input type="checkbox" class="form-check-input" name="homeschooling" id="homeschooling">
+                            <input type="checkbox" class="form-check-input" name="homeschool" id="homeschooling">
                             <label for="homeschooling">Homeschooling</label>
                         </span>
                         <span>
