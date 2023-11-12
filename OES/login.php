@@ -3,6 +3,9 @@ require "./template/constants.php";
 require './db/conn.php';
 require "./template/head.php";
 
+if(isset($_SESSION['role'])) {
+    echo "<script>window.location</script>";
+}
 
 load_header("Login", ['login'], []);
 ?>

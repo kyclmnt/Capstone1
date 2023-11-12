@@ -1,0 +1,1 @@
+ALTER TABLE `tb_form` CHANGE `deleted_flag` `deleted_flag` ENUM('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0';

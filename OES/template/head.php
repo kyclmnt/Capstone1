@@ -28,7 +28,7 @@ function set_js(array $js = [])
 }
 ?>
 <?php
-function load_header(String $title = "Document", array $css = [], array $js = [])
+function load_header(String $title = "Document", array $css = [], array $js = [], bool $show = true)
 { ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -90,6 +90,7 @@ function load_header(String $title = "Document", array $css = [], array $js = []
         }
         ?>
     </head>
+    <?php if($show) {?>
     <header>
         <div id="logo-holder">
             <img src="logo.png" alt="Andres Bonifacio Integrated School Logo" style="width:50px;height:50px" ;>
@@ -111,6 +112,7 @@ function load_header(String $title = "Document", array $css = [], array $js = []
             ?>
         </nav>
     </header>
+    <?php } ?>
     <body>
 
     <?php } ?>

@@ -68,14 +68,16 @@ function showUserProfile() {
 function showUserPassword() {
   $("form").off("submit");
   $("form").removeClass("hide");
+  
   $("#table_wrapper").addClass("hide");
-  if ($(".form-body").has("#user-password").length < 1) {
+  console.log($(".form-body").has("#user-password-cont").length);
+  if ($(".form-body").has("#user-password-cont").length < 1) {
     $("form > div.form-title").html(`
         <h2>Password</h2>
     `);
 
     $("form > div.form-body").html(`
-    <div id="user-password" class="d-flex justify-center flex-column align-items-center gap-2"> 
+    <div id="user-password-cont" class="d-flex justify-center flex-column align-items-center gap-2"> 
         <input type="hidden" name="id" value="${uid}">
         <span>
             <label for="oldpass" class="form-label">Old Password</label>
@@ -118,6 +120,7 @@ function createUser() {
   $("form").off("submit");
   $("form").removeClass("hide");
   $("#table_wrapper").addClass("hide");
+
   if ($(".form-body").has("#new-user").length < 1) {
     $("form > div.form-title").html(`
             <h2>Create User</h2>
@@ -126,19 +129,19 @@ function createUser() {
     $("form > div.form-body").html(`
         <div id="new-user" class="d-flex justify-center flex-column align-items-center gap-2"> 
             <input type="hidden" name="id" value="${uid}">
-            <span>
+            <span id="user-firstname">
                 <label for="fname" class="form-label">First Name</label>
                 <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname">
             </span>
-            <span>
+            <span id="user-lastname">
                 <label for="lname" class="form-label">Last Name</label>
                 <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname">
             </span>
-            <span>
+            <span id="user-email">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" placeholder="Email" id="email" name="email">
             </span>
-            <span>
+            <span id="user-role">
                 <label for="role" class="form-label">Role</label>
                 <select class="form-control" id="role" name="role">
                     <option value="A">Admin</option>
@@ -146,11 +149,11 @@ function createUser() {
                     <option value="S">Student</option>
                 </select>
             </span>
-            <span>
+            <span id="user-password">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" placeholder="Password" id="password" name="password">
             </span>
-            <span>
+            <span id="user-confirmation-password">
                 <label for="re-enter-pass" class="form-label">Re-Enter Password</label>
                 <input type="password" class="form-control" placeholder="Re-Enter Password" id="re-enter-pass" name="re-enter-pass">
             </span>
@@ -162,10 +165,24 @@ function createUser() {
 
     $("form").on("submit", function (e) {
       e.preventDefault();
-
+      $("#user-password > ul").remove();
       const form = new FormData(document.querySelector("form"));
       submit(base_url + "api/create-user.php", form, (data) => {
-        showToast(data.result);
+        let message = data.result.message;
+        console.log(message)
+        message = message.search(/\[/) >= 0 ? message.replaceAll(/[\[\]]/g, "").split(",") : message;  
+        
+        if(typeof message === "object") {
+          
+          let error_list = "<ul>";
+          message.forEach(error=>{
+            error_list += "<li> <span class='text-danger'>"+error+"</span> </li>";
+          })
+          error_list += "</ul>";
+          $("#user-password").append(error_list);
+        } else {
+          showToast(data.result);
+        }
       });
     });
   }

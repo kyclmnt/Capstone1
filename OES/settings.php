@@ -1,5 +1,8 @@
 <?php
 require "./template/head.php";
+
+if(!isset($_SESSION['role'])) header("Location:login.php");
+
 load_header("Settings", ["main", "settings", "footer"], ["settings"]);
 
 ?>

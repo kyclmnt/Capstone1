@@ -91,6 +91,11 @@ function toggle_inputs() {
 function onSubmit() {
   const form = new FormData(document.getElementById("form-container"));
 
+  $("#form-container input[type='checkbox']").each(function(){
+    const cb_name = this.name;
+    form.get(cb_name) ?? form.set(cb_name, "off");
+  })
+
   fetch(base_url + "api/update_enrollee.php", {
     method: "post",
     body: form,
@@ -218,10 +223,10 @@ function viewRecord(record_id) {
 
 
           <p class="sex">Sex</p>
-          <select class="sx form-control">
+          <select class="sx form-control" name="sex">
               <option>Choose an option</option>
-              <option name="sex"  ${student['returning'] == "M" ? "checked" : null } id="male" value="M">Male</option>
-              <option name="sex" ${student['returning'] == "F" ? "checked" : null } id="female" value="F">Female</option>
+              <option name="sex"  ${student['sex'] == "M" ? "selected" : null } id="male" value="M">Male</option>
+              <option name="sex" ${student['sex'] == "F" ? "selected" : null } id="female" value="F">Female</option>
           </select>
 
           <p class="age">Age</p>
@@ -392,40 +397,40 @@ function viewRecord(record_id) {
           <div class="check d-flex">
           <span class="d-flex flex-column">
             <span  class="d-flex">
-              <input type="checkbox" class="form-check-input" name="modularprint" id="modularp" ${student['modularprint'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="form-check-input" name="modularprint" id="modularp" ${student['modularprint'] == 'on' ? "checked" : ""}>
               <label for="modularp">Modular(Print)</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="one form-check-input" name="online" id="online" ${student['online'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="one form-check-input" name="online" id="online" ${student['online'] == 'on' ? "checked" : ""}>
               <label for="online" class="one">Online</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="two form-check-input" name="radio" id="radio" ${student['radio'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="two form-check-input" name="radio" id="radio" ${student['radio'] == 'on' ? "checked" : ""}>
               <label for="radio" class="two">Radio-Based Instruction</label>
             </span>
             </span>
 
           <span class="d-flex flex-column">
             <span class="d-flex">
-              <input type="checkbox" class="form-check-input" name="blended" id="blended" ${student['blended'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="form-check-input" name="blended" id="blended" ${student['blended'] == 'on' ? "checked" : ""}>
               <label for="blended">Blended</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="three form-check-input" name="modulardigital" id="modulard" ${student['modulardigital'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="three form-check-input" name="modulardigital" id="modulard" ${student['modulardigital'] == 'on' ? "checked" : ""}>
               <label for="modulard" class="three">Modular(Digital)</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="four form-check-input" name="eductv" id="educationtv"  ${student['eductv'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="four form-check-input" name="eductv" id="educationtv"  ${student['eductv'] == 'on' ? "checked" : ""}>
               <label for="educationtv" class="four">Educational Television</label>
             </span >
           </span>
           <span class="d-flex flex-column">
             <span class="d-flex">
-              <input type="checkbox" name="homeschool"  class="form-check-input" id="homeschooling"  ${student['homeschool'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" name="homeschool"  class="form-check-input" id="homeschooling"  ${student['homeschool'] == 'on' ? "checked" : ""}>
               <label for="homeschooling">Homeschooling</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="five form-check-input" name="facetoface" id="facetoface"  ${student['facetoface'] == 'yes' ? "checked" : ""}>
+              <input type="checkbox" class="five form-check-input" name="facetoface" id="facetoface"  ${student['facetoface'] == 'on' ? "checked" : ""}>
               <label for="facetoface" class="five">Face to Face</label>
             </span>
           </span>
@@ -441,7 +446,7 @@ function viewRecord(record_id) {
       </div>
       </div>
   </form>`;
-      showModal("View Record", form_content, ["no", "yes"], "g", () => {
+      showModal("View Record", form_content, ["cancel", "yes"], "g", () => {
         onSubmit();
       });
       // $("#form-container").html(form_content);

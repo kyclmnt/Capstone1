@@ -9,7 +9,7 @@ if($_POST['by'] == "all") {
               `track` as 'x',
               count(*) as 'y'
             FROM `tb_form` 
-            WHERE `strand` = ''
+            WHERE `strand` = '' AND  `tb_form`.deleted_flag = '0'
             GROUP BY `gradelevel`, `track`
             UNION ALL
             SELECT 
@@ -17,7 +17,7 @@ if($_POST['by'] == "all") {
               `strand` as 'x',
               count(*) as 'y'
             FROM `tb_form` 
-            WHERE `track` = ''
+            WHERE `track` = '' AND  `tb_form`.deleted_flag = '0'
             GROUP BY `gradelevel`, `strand`
     ";
 } else if($_POST['by'] == "gender") {
@@ -34,8 +34,10 @@ if($_POST['by'] == "all") {
             / (SELECT 
             count(*)
             FROM `tb_form`
+            WHERE `tb_form`.deleted_flag = '0'
             ) * 100 AS int)as 'y'
         FROM `tb_form`
+        WHERE `tb_form`.deleted_flag = '0'
         GROUP BY `sex`";
 } else if($_POST['by'] == "grade_level") {
   $sql = "SELECT 
@@ -44,11 +46,13 @@ if($_POST['by'] == "all") {
             / (SELECT 
             count(*)
             FROM `tb_form`
+            WHERE `tb_form`.deleted_flag = '0'
           ) * 100 AS int) as 'y'
           FROM `tb_form`
+          WHERE `tb_form`.deleted_flag = '0'
           GROUP BY `gradelevel`";
 } else if($_POST['by'] == "total") {
-  $sql = "SELECT COUNT(*) AS 'total' FROM `tb_form`";
+  $sql = "SELECT COUNT(*) AS 'total' FROM `tb_form` WHERE `tb_form`.deleted_flag = '0'";
 }
 
 

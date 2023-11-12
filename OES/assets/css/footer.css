@@ -20,20 +20,16 @@ form {
 }
 .modal-content {
   height: fit-content !important;
-  max-height: 100vh !important;
-  width: 50vw;
+  max-height: 80vh !important;
+  width: fit-content;
+  min-width: 30vw;
   position: absolute !important;
-  top: 0;
   left: 50%;
   transform: translate(-50%);
   margin: 0 auto;
 }
 .modal-content {
   overflow-y: scroll;
-}
-
-.modal-dialog{
-  position: static !important;
 }
 form#form-container span {
   gap: 1rem;
