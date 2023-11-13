@@ -25,7 +25,9 @@ load_header("ABIS | Settings", ["main", "settings", "footer"], ["settings"]);
                         <button class="nav-link dropdown-toggle" id="v-pills-manageusers-tab" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-users"></i> Manage User</button>
                         <ul class="dropdown-menu nav-pills">
                             <li><button id="v-pills-viewuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-viewuser"  data-bs-toggle="pill" onclick="viewUsers()">View User</button></li>
+                            <?php if($_SESSION["role"] == "A"){ ?>
                             <li><button id="v-pills-createuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-createuserd" data-bs-toggle="pill" onclick="createUser()">Create new User</button></li>
+                            <?php } ?>
                         </ul>
                     </li>
                 </ul>
