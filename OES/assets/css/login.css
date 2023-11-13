@@ -16,23 +16,27 @@ div{
 }
 
 img{
-    min-width: 400px;
+    /* min-width: 400px;
     width: 45%;
-    min-height: 400px;
-    height: 45%;
+    min-height: 400px; */
+    /* height: 45%; */
     border-radius: 100%;
     display: block;
     margin-bottom: 20px;
+    height: auto;
+    width: clamp(100px, 40vw, 400px);
 }
 
 #one{
-    background-color: #8d2826; 
+    display: flex;
+    align-items: center;
+    min-width: 300px;
 }
 
 #two{
-    gap: 100px;
-    justify-content: start;
-    padding-top: 100px;
+    background-color: #8d2826; 
+    flex-grow: 1;
+    
 }
 
 #one,
@@ -44,6 +48,7 @@ h1,
 h2{
     text-align: center;
     color: white;
+
 }
 
 h2{
@@ -95,6 +100,7 @@ form  input[type="password"]{
     padding-left: 25px;
     width: 100%;
     display: inline-block;
+    min-width: 250px;
 }
 
 form > button{
@@ -102,14 +108,15 @@ form > button{
     color: white;
     padding: 10px;
     border-radius: 10px;
+    min-width: 250px;
 }
 
-form > span#email,
+/* form > span#email,
 form > span#password,
 form > button{
     width: 40%;
     display: inline-block;
-}
+} */
 
 form > span{
     position: relative;
