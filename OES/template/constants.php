@@ -6,7 +6,7 @@ if(!defined("DB_PASSWORD")) define("DB_PASSWORD", "12345"); // defalut value is 
 if(!defined("DB_NAME")) define("DB_NAME", "db_abis");  // default is "db_abis"
 
 function base_url(String $link = "") {
-    return "http://localhost/Capstone1/OES/{$link}"; // the link of the folder in your htdocs
+    return BASE_PATH."{$link}"; // the link of the folder in your htdocs
 }
 
 
