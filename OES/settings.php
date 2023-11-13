@@ -20,16 +20,16 @@ load_header("ABIS | Settings", ["main", "settings", "footer"], ["settings"]);
                     <li class="nav-item">
                         <button class="nav-link" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" onclick="showUserPassword()"><i class="fa fa-lock"></i> Password</button>
                     </li>
-                    <li class="nav-item dropdown">
-                        <!-- <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a> -->
-                        <button class="nav-link dropdown-toggle" id="v-pills-manageusers-tab" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-users"></i> Manage User</button>
-                        <ul class="dropdown-menu nav-pills">
-                            <li><button id="v-pills-viewuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-viewuser" data-bs-toggle="pill" onclick="viewUsers()">View User</button></li>
-                            <?php if ($_SESSION["role"] == 'A') { ?>
+                    <?php if ($_SESSION["role"] == 'A') { ?>
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a> -->
+                            <button class="nav-link dropdown-toggle" id="v-pills-manageusers-tab" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-users"></i> Manage User</button>
+                            <ul class="dropdown-menu nav-pills">
+                                <li><button id="v-pills-viewuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-viewuser" data-bs-toggle="pill" onclick="viewUsers()">View User</button></li>
                                 <li><button id="v-pills-createuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-createuserd" data-bs-toggle="pill" onclick="createUser()">Create new User</button></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
             <form action="" method="post" class="d-flex flex-column flex-grow-1">

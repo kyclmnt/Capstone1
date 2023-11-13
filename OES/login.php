@@ -7,7 +7,7 @@ if(isset($_SESSION['role'])) {
     echo "<script>window.location</script>";
 }
 
-load_header("ABIS | Login", ['login'], []);
+load_header("ABIS | Login", ['login'], [], false);
 ?>
 
 <main>
@@ -45,10 +45,6 @@ load_header("ABIS | Login", ['login'], []);
     </div>
 </main>
 
-<script>
-    $("header").addClass("hide");
-</script>
-
 <?php
 if (isset($_POST["submit"])) {
 
@@ -83,7 +79,7 @@ if (isset($_POST["submit"])) {
             // var_dump($_SESSION);
             echo "<script>window.location.href = '".BASE_PATH."dashboard.php'</script>";
         } else {
-            echo "<script>window.location.href = '".BASE_PATH."dashboard.php'</script>";
+            echo "<script>window.location.href = '".BASE_PATH."student.php'</script>";
         }
     }
 }
