@@ -12,7 +12,17 @@ load_header("ABIS | Login", ['login'], [], false);
 
 <main class="d-flex flex-wrap">
     <div id="one">
-        <form action="login.php" method="POST">
+    <img src="logo.png">
+        <h1>
+            ANDRES BONIFACIO INTEGRATED SCHOOL
+        </h1>
+        <h2>
+            <i>"Aim High ABIS, Aim for Excellence"</i>
+        </h2>
+       
+    </div>
+    <div id="two">
+    <form action="login.php" method="POST">
             <span>
                 LOGIN HERE!
             </span>
@@ -29,19 +39,9 @@ load_header("ABIS | Login", ['login'], [], false);
                 LOGIN
             </button>
         </form>
-    </div>
-    <div id="two">
-    <img src="logo.png">
-        <h1>
-            ANDRES BONIFACIO INTEGRATED SCHOOL
-        </h1>
-        <h2>
-            <i>"Aim High ABIS, Aim for Excellence"</i>
-        </h2>
         <a href="home.php" id="btn-fquestion">
             <i class="fa-solid fa-share"></i>
         </a>
-
     </div>
 </main>
 

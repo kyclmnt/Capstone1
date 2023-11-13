@@ -28,15 +28,16 @@ img{
 }
 
 #one{
-    display: flex;
-    align-items: center;
-    min-width: 300px;
+    background-color: #8d2826; 
+    background-image: linear-gradient(rgb(71, 13, 13), rgb(119, 20, 20));
+    flex-grow: 1;
 }
 
 #two{
-    background-color: #8d2826; 
-    flex-grow: 1;
-    
+
+    display: flex;
+    align-items: center;
+    min-width: 300px;
 }
 
 #one,
@@ -105,6 +106,7 @@ form  input[type="password"]{
 
 form > button{
     background-color: maroon;
+    background-image: linear-gradient(rgb(71, 13, 13), rgb(119, 20, 20));
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -142,7 +144,7 @@ div#two > #btn-fquestion{
     height: 15px;
     padding:20px;
     font-size: 16px;
-    background-color: rgb(143, 66, 66);
+    background-image: linear-gradient(rgb(71, 13, 13), rgb(119, 20, 20));   
     color: white;
     margin: 10px;
     border: none;
