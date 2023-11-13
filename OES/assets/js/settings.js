@@ -8,6 +8,7 @@ $(document).ready(() => {
 });
 
 function showUserProfile() {
+  
   $("form").off("submit");
   $("form").removeClass("hide");
   $("#table_wrapper").addClass("hide");
@@ -45,7 +46,8 @@ function showUserProfile() {
 
     $("form").on("submit", function (e) {
       e.preventDefault();
-
+        
+      
       showModal(
         "Update Profile",
         "Are you sure to update your profile ?",
@@ -55,9 +57,11 @@ function showUserProfile() {
           const form = new FormData(document.querySelector("form"));
           submit(base_url + "api/update-account.php", form, (data) => {
             showToast(data.result);
-            fname = data.result.fname;
-            lname = data.result.lname;
-            email = data.result.email;
+            fname = data.result.user.fname;
+            lname = data.result.user.lname;
+            email = data.result.user.email;
+
+            
           });
         }
       );

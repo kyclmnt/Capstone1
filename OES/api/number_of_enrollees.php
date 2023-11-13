@@ -59,7 +59,7 @@ if($_POST['by'] == "all") {
 $result = $conn->query($sql);
 
 $data = array();
-while($row = $result->fetch_assoc()) {
+while($row = mysqli_fetch_assoc($result)) {
     array_push($data, $row);
 }   
 

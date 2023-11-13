@@ -1,7 +1,7 @@
 <?php
 require "./template/head.php";
 
-if(!isset($_SESSION['role'])) header("Location:login.php");
+if (!isset($_SESSION['role'])) header("Location:login.php");
 
 load_header("ABIS | Settings", ["main", "settings", "footer"], ["settings"]);
 
@@ -24,8 +24,10 @@ load_header("ABIS | Settings", ["main", "settings", "footer"], ["settings"]);
                         <!-- <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a> -->
                         <button class="nav-link dropdown-toggle" id="v-pills-manageusers-tab" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-users"></i> Manage User</button>
                         <ul class="dropdown-menu nav-pills">
-                            <li><button id="v-pills-viewuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-viewuser"  data-bs-toggle="pill" onclick="viewUsers()">View User</button></li>
-                            <li><button id="v-pills-createuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-createuserd" data-bs-toggle="pill" onclick="createUser()">Create new User</button></li>
+                            <li><button id="v-pills-viewuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-viewuser" data-bs-toggle="pill" onclick="viewUsers()">View User</button></li>
+                            <?php if ($_SESSION["role"] == 'A') { ?>
+                                <li><button id="v-pills-createuser-tab" class="nav-link dropdown-item" data-bs-target="#v-pills-createuserd" data-bs-toggle="pill" onclick="createUser()">Create new User</button></li>
+                            <?php } ?>
                         </ul>
                     </li>
                 </ul>
