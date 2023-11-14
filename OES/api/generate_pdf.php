@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "GET")  header("Location:../home.php");
-require_once("../libraries/fpdm/fpdm.php");
+require_once("../libs/fpdm/fpdm.php");
 
 /**
  * This function will generate a pdf
