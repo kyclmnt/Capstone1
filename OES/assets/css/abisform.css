@@ -23,9 +23,11 @@ div.current-address > div > span > input,
 div.perm-address > div > span > input {
     flex-grow: 1 !important;
 }
-
+button[name="submit"]:active {
+    background-color: #942516;
+}
 button[name="submit"] {
-    background-color: maroon;
+    background-color: #942516;
     color: white;
     width: fit-content;
     align-self: flex-end;

@@ -4,7 +4,7 @@ require './db/conn.php';
 require "./template/head.php";
 
 if(isset($_SESSION['role'])) {
-    echo "<script>window.location</script>";
+    header("Location:home.php");
 }
 
 load_header("ABIS | Login", ['login'], [], false);

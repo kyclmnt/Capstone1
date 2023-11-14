@@ -1,7 +1,8 @@
 <?php
 require "./template/head.php";
 
-if (!isset($_SESSION['role'])) header("Location:login.php");
+if (!isset($_SESSION['role'])) { header("Location:login.php"); die;} 
+if($_SESSION['role'] === "S") { header("Location: abisform.php"); die; }
 
 load_header("ABIS | Settings", ["main", "settings", "footer"], ["settings"]);
 

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let enrollees_chart = new ChartJS(enrollees_cont, {
     type: "bar",
-    options: { responsive: false, plugins: { legend: { position: "bottom" } } },
+    options: { responsive: true, plugins: { legend: { position: "bottom" } } },
   });
   let enrollees_by_gender_chart = new ChartJS(enrollees_by_gender_cont, {
     type: "pie",

@@ -188,3 +188,9 @@ ul.nav {
     width: 100%;
 }
 /*footer - renz*/
+
+
+#v-pills-viewuser-tab:active,
+#v-pills-createuser-tab:active {
+    background-color: white;
+}

@@ -1,7 +1,8 @@
 <?php
 require "./template/head.php";
 
-if(!isset($_SESSION['role'])) header("Location:login.php");
+if(!isset($_SESSION['role'])) { header("Location:login.php"); die; }
+if($_SESSION['role'] === "S") { header("Location: abisform.php"); die; }
 
 load_header("ABIS | Student", ["header", "student", "footer"], ["student"]);
 
@@ -30,7 +31,7 @@ load_header("ABIS | Student", ["header", "student", "footer"], ["student"]);
             </h1>
             <table id="table">
             </table>
-            <?php echo $_SESSION['role'] == "A" ? '<button id="delete-student-btn" class="hide no-flex-grow" onclick="delete_enrollee()">Delete</button>' : '' ?>
+            <?php echo $_SESSION['role'] == "A" ? '<button id="delete-student-btn" class="hide btn btn-danger align-self-end p-2 no-flex-grow" onclick="delete_enrollee()">Delete</button>' : '' ?>
             
         </div>
 

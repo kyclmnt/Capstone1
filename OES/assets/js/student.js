@@ -111,6 +111,7 @@ function onSubmit() {
 }
 
 function viewRecord(record_id) {
+  $(".modal-content").addClass("overflow-scroll-Y");
   const form = new FormData();
   form.append("id", record_id);
   fetch(base_url + "api/enrollees.php", {
@@ -480,6 +481,8 @@ function toggle_id_column(element) {
 }
 
 function delete_enrollee() {
+  $(".modal-content").removeClass("overflow-scroll-Y");
+
   showModal(
     "Delete record",
     "Are you sure you want to delete the selected record/s ?",

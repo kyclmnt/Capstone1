@@ -44,7 +44,8 @@ function load_header(String $title = "Document", array $css = [], array $js = []
         <script src="<?= base_url("assets/libraries/bootstrap/bootstrap.min.js") ?>"></script>
 
         <!-- fontawesome -->
-        <link rel="stylesheet" href="<?= base_url("assets/libraries/fontawesome/all.min.css") ?>">
+        <link rel="stylesheet" href="<?= base_url("assets/libraries/fontawesome/fontawesome.min.css") ?>">
+        <script src="<?= base_url("assets/libraries/fontawesome/fontawesome.min.js") ?>"></script>
 
         <!-- JQUERY -->
         <script src="<?= base_url("assets/libraries/jquery/jquery.min.js") ?>"></script>
@@ -95,7 +96,7 @@ function load_header(String $title = "Document", array $css = [], array $js = []
     </head>
     <?php if($show) {?>
     <header>
-        <div id="logo-holder">
+        <div id="logo-holder ">
             <img src="logo.png" alt="Andres Bonifacio Integrated School Logo" style="width:50px;height:50px" ;>
             Andres Bonifacio Integrated School
         </div>

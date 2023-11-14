@@ -27,7 +27,7 @@ foreach ($_POST as $key => $val) {
             $data["{$key}_{$i}"] = $sub_keys[$i];
         }
     elseif(in_array($key, $radio_inputs)):
-        $data["{$key}_{$val}"] = "yes";
+        $data["{$key}_{$val}"] = true;
         // echo "{$key}_{$val}";
     else:
         if($key!="submit" && !empty(trim($val))) $data["{$key}"] = $val;

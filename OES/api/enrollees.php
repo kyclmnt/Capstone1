@@ -36,6 +36,6 @@ while($result = $query->fetch_assoc()) array_push($data, $result);
 
 
 echo json_encode(["data" => $data]);
-$con->close();
+$conn->close();
 
 ?>
