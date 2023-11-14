@@ -14,6 +14,7 @@ $sql = "SELECT
 $result = $conn->query($sql);
 
 echo json_encode(["data" => $result->fetch_object()]);
+$con->close();
 
 
 ?>

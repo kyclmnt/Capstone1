@@ -32,4 +32,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // throw new Error(json_encode($errors));
         echo json_encode(['result'=>['status'=>'error', 'message' => "[" . implode(",",$errors) . "]"]]);
     }
+    $con->close();
 }

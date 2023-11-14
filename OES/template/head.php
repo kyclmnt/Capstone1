@@ -48,6 +48,7 @@ function load_header(String $title = "Document", array $css = [], array $js = []
 
         <!-- JQUERY -->
         <script src="<?= base_url("assets/libraries/jquery/jquery.min.js") ?>"></script>
+    
 
         <!-- Chart JS -->
         <script src="<?= base_url("assets/libraries/chartjs/chart.min.js") ?>" defer></script>
@@ -65,22 +66,24 @@ function load_header(String $title = "Document", array $css = [], array $js = []
         <link rel="stylesheet" href="<?= base_url("assets/libraries/datatable/datatable.min.css") ?>">
         <script src="<?= base_url("assets/libraries/datatable/datatable.min.js") ?>" defer></script>
         
-        
-        
-        
 
+        <!-- Global JS files -->
+        <script src="<?php echo base_url("assets/js/main.js") ?>"></script>
+
+    
         <?= set_js($js); ?>
 
         <!-- Custom JS -->
         <script>
             const base_url = "<?= BASE_PATH ?>";
+            console.log(base_url);
 
-            const uid = "<?= $_SESSION['uid'] ?>";
-        </script>
+            </script>
         <?php
         if (isset($_SESSION['role'])) {
-        ?>
+            ?>
             <script>
+                const uid = "<?= $_SESSION['uid'] ?>";
                 let role = "<?= $_SESSION['role'] ?>";
                 let fname = "<?= $_SESSION['fname'] ?>";
                 let lname = "<?= $_SESSION['lname'] ?>";

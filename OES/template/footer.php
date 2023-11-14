@@ -76,22 +76,7 @@ function load_footer(array $js = [], $show = true)
             }
         }
 
-        function submit(url = null, form, callback = null) {
-            if(!url || !callback) return;
-            fetch(url,
-                {
-                    method : form ? "post" : "get",
-                    body : form
-                }   
-            )
-            .then(resp=>resp.json())
-            .then(resp=>{
-                if(callback) callback(resp);
-            })
-            .catch(err=>{
-                console.log(err);
-            })
-        }
+        
     </script>
     <!-- BOOTSTRAP -->
     <script src="<?= base_url("assets/bootstrap/js/bootstrap.min.js") ?>"></script>

@@ -50,8 +50,19 @@ function onSubmit() {
 
     submit(base_url + "api/enroll.php", form, (response) => {
       showToast(response.result);
-      $("#abis-form-container ").trigger("reset");
+
       window.scrollTo({ top: 0 });
+      $("#abis-form-container ").trigger("reset");
+
+      DELAY_EVENT(()=>{
+        const pdf_viewer_window = window.open("", "_blank");
+        const file_link = base_url + "files/enrollees-forms/" + response.result.filename;
+        
+        pdf_viewer_window.document.title = "PDF";
+
+        pdf_viewer_window.document.body.innerHTML += `<a href="${file_link}" download> Download File </a>`;
+        pdf_viewer_window.document.body.innerHTML += `<embed src="${file_link}" type="application/pdf" width="100%" height="100%">`
+      }, 5000)
     });
   });
 }

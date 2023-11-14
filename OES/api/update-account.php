@@ -26,6 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $status = "error";
         echo json_encode(['result' => ['status' => $status]]);
     }
+
+    $con->close();
     
 }
 

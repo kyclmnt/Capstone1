@@ -6,8 +6,8 @@ require "./template/head.php";
 
 load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisform"], false);
 ?>
-<main>
-    <form action="./abisform.php" method="POST" class="border border-dark" id="abis-form-container">
+<main>    
+    <form method="POST" class="border border-dark" id="abis-form-container"> <!-- id="abis-form-container" -->
         <div class="main d-flex flex-column gap-3 p-3">
             <div class="head d-flex align-items-center justify-center gap-4">
                 <img src="./assets/images/DEPED.png" alt="" style="width:10%;height:100% !important" ;>
@@ -26,10 +26,10 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
 
                     <div class="d-flex flex-column">
                         <p class="grade">Grade Level to Enroll</p>
-                        <select class="gradelevel form-control">
-                            <option>Choose an option</option>
-                            <option id="grade11" value="grade11" name="gradelevel">Grade 11</option>
-                            <option id="grade12" value="grade12" name="gradelevel">Grade 12</option>
+                        <select class="gradelevel form-control" name="gradelevel">
+                            <option selected disabled>Choose an option</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
                         </select>
                     </div>
                 </span>
@@ -153,11 +153,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <p class="4Ps">Is your family a beneficiary of 4Ps?</p>
                         <div class="y4Ps d-flex gap-4">
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="4ps" id="y4Ps" value="yes">
+                                <input type="radio" class="form-check-input" name="4ps" id="y4Ps">
                                 <label for="y4ps">Yes</label>
                             </span>
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="4ps" id="n4Ps" value="no">
+                                <input type="radio" class="form-check-input" name="4ps" id="n4Ps">
                                 <label for="n4Ps">No</label>
                             </span>
                         </div>
@@ -211,7 +211,8 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <label for="Ycurrent">Yes</label>
                     </span>
                     <span>
-                        <input type="radio" checked class="form-check-input" name="perma" id="Ncurrent">
+                        <!-- checked -->
+                        <input type="radio"  class="form-check-input" name="perma" id="Ncurrent"> 
                         <label for="Ncurrent">No</label>
                     </span>
                 </span>

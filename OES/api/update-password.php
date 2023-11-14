@@ -21,6 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             die();
         } else { echo json_encode(['result'=>['status'=>'error', 'message'=>$conn->error]]); die(); }
     } else { echo json_encode(['result'=>['status' => "error", "message"=>"Incorrect Old Passowrd"]]); die(); }
+
+    $con->close();
 }
 
 function check_oldpass($conn, $pass) {
