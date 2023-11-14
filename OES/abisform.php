@@ -113,10 +113,10 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                     </span>
                     <span class="d-flex align-items-center form-group flex-grow-1">
                         <p class="sex">Sex</p>
-                        <select class="sx form-control">
+                        <select class="sx form-control" name="sex">
                             <option>Choose an option</option>
-                            <option name="sex" id="male" value="M">Male</option>
-                            <option name="sex" id="female" value="F">Female</option>
+                            <option  id="male" value="M">Male</option>
+                            <option id="female" value="F">Female</option>
                         </select>
                     </span>
 
@@ -153,11 +153,11 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                         <p class="4Ps">Is your family a beneficiary of 4Ps?</p>
                         <div class="y4Ps d-flex gap-4">
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="4ps" id="y4Ps">
+                                <input type="radio" class="form-check-input" name="4ps" value="yes" id="y4Ps">
                                 <label for="y4ps">Yes</label>
                             </span>
                             <span class="d-flex gap-2">
-                                <input type="radio" class="form-check-input" name="4ps" id="n4Ps">
+                                <input type="radio" class="form-check-input" name="4ps" value="no" id="n4Ps">
                                 <label for="n4Ps">No</label>
                             </span>
                         </div>
@@ -207,12 +207,12 @@ load_header("ABIS | Enrollment Form", ["header","abisform", "footer"], ["abisfor
                 <p class="addr highlight"><b>Permanent Address </b><i>(Same with your current address?)</i></p>
                 <span class="d-flex gap-3">
                     <span>
-                        <input type="radio" class="form-check-input" name="perma" id="Ycurrent">
+                        <input type="radio" class="form-check-input" value="yes" name="perma" id="Ycurrent">
                         <label for="Ycurrent">Yes</label>
                     </span>
                     <span>
                         <!-- checked -->
-                        <input type="radio"  class="form-check-input" name="perma" id="Ncurrent"> 
+                        <input type="radio"  class="form-check-input" value="no" name="perma" id="Ncurrent"> 
                         <label for="Ncurrent">No</label>
                     </span>
                 </span>
