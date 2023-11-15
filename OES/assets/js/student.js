@@ -58,10 +58,7 @@ async function loadData(url = null, table = null, callback = null) {
           "id"
         ].padStart(6, "0")}</label>
                         </td>`;
-        tbody += `<td class='text-center' ${
-          role === "A" ? `onclick='viewRecord(${student["id"]})'` : ""
-        } ><span class=${
-          role === "A" ? `'primary text-underline cursor-pointer'` : ""
+        tbody += `<td class='text-center'  onclick='viewRecord(${student["id"]})'><span class='primary text-underline cursor-pointer'
         }>${student["name"]}</span></td>`;
         tbody += `<td>${student["strand"]}</td>`;
         tbody += `<td>${student["gradelevel"]}</td>`;
@@ -91,10 +88,10 @@ function toggle_inputs() {
 function onSubmit() {
   const form = new FormData(document.getElementById("form-container"));
 
-  $("#form-container input[type='checkbox']").each(function(){
+  $("#form-container input[type='checkbox']").each(function () {
     const cb_name = this.name;
     form.get(cb_name) ?? form.set(cb_name, "off");
-  })
+  });
 
   fetch(base_url + "api/update_enrollee.php", {
     method: "post",
@@ -121,16 +118,22 @@ function viewRecord(record_id) {
     .then((response) => response.json())
     .then((data) => {
       const student = data.data[0];
-      console.log(student);
-      
       const form_content = `
-      <form action="./abisform.php" method="POST" id="form-container">
-      <input
-        type="hidden"
-        class="schoolyear"
-        value="${student.id}"
-        name="id"
-      />
+      <${
+        role === "A"
+          ? 'form action="./abisform.php" method="POST" id="form-container"'
+          : 'div id="stud-profile"'
+      } >
+      ${
+        role === "A"
+          ? `<input
+      type="hidden"
+      class="schoolyear"
+      value="${student.id}"
+      name="id"
+    />`
+          : ""
+      }
       <div class="main">
           <div class="head d-flex justify-center align-items-center gap-2">
               <img src="./assets/images/DEPED.png" alt="" style="width:65px;height:65px !important" ;>
@@ -141,8 +144,12 @@ function viewRecord(record_id) {
                   <div class="d-flex align-items-center">
                       <p class="year">School Year</p>
                       <span class="d-flex">
-                        <input type="numeric" class="schoolyear form-control" value="${student['from']}" name="from" required />
-                        <input type="numeric" class="schoolyear form-control" value="${student['to']}" name="to" required />
+                        <input type="numeric" class="schoolyear form-control" value="${
+                          student["from"] ?? ""
+                        }" name="from" required />
+                        <input type="numeric" class="schoolyear form-control" value="${
+                          student["to"] ?? ""
+                        }" name="to" required />
                       </span>
                   </div>
 
@@ -150,8 +157,12 @@ function viewRecord(record_id) {
                   <div required class="flex-grow-1">
                       <select class="gradelevel form-control" name='gradelevel'>
                           <option>Choose an option</option>
-                          <option id="grade11" ${student['gradelevel'] == "11" ? "selected" : null } name="gradelevel" value="11">Grade 11</option>
-                          <option id="grade12" ${student['gradelevel'] == "12" ? "selected" : null } name="gradelevel" value="12">Grade 12</option>
+                          <option id="grade11" ${
+                            student["gradelevel"] == "11" ? "selected" : ""
+                          } name="gradelevel" value="11">Grade 11</option>
+                          <option id="grade12" ${
+                            student["gradelevel"] == "12" ? "selected" : ""
+                          } name="gradelevel" value="12">Grade 12</option>
                       </select>
                   </div>
               </div>
@@ -160,19 +171,27 @@ function viewRecord(record_id) {
 
                   <div class="lrn">
                       <p>1. With LRN?</p>
-                      <input type="radio" ${student['withlrn'] == "yes" ? "checked" : null } class="Ylrn  form-check-input" name="withlrn" id="Ylrn" value="yes">
+                      <input type="radio" ${
+                        student["withlrn"] == "yes" ? "checked" : ""
+                      } class="Ylrn  form-check-input" name="withlrn" id="Ylrn" value="yes">
                       <label for="Ylrn">Yes</label>
                       <br>
-                      <input type="radio" ${student['withlrn'] == "no" ? "checked" : null } class="Ylrn  form-check-input" name="withlrn" id="Nlrn" value="no">
+                      <input type="radio" ${
+                        student["withlrn"] == "no" ? "checked" : ""
+                      } class="Ylrn  form-check-input" name="withlrn" id="Nlrn" value="no">
                       <label for="Nlrn">No</label>
                   </div>
 
                   <div class="return">
                       <p>2. Returning (Balik Aral)</p>
-                      <input type="radio" ${student['returning'] == "yes" ? "checked" : null } class="Yreturn  form-check-input" name="returning" id="Yreturn" value="yes">
+                      <input type="radio" ${
+                        student["returning"] == "yes" ? "checked" : ""
+                      } class="Yreturn  form-check-input" name="returning" id="Yreturn" value="yes">
                       <label for="Yreturn">Yes</label>
                       <br>
-                      <input type="radio"  ${student['returning'] == "no" ? "checked" : null } class="Yreturn  form-check-input" name="returning" id="Nreturn" value="no">
+                      <input type="radio"  ${
+                        student["returning"] == "no" ? "checked" : ""
+                      } class="Yreturn  form-check-input" name="returning" id="Nreturn" value="no">
                       <label for="Nreturn">No</label>
                   </div>
 
@@ -190,74 +209,109 @@ function viewRecord(record_id) {
           <div class="d-flex flex-column">
 
           </div>
-          <span>
-              <p class="learner"><b>LEARNER INFORMATION</b></p>
-              <hr class="i">
+          <span class="d-flex flex-column">
+              <p class="learner border border-dark p-2" style="width:100%;"><b>LEARNER INFORMATION</b></p>
               <p class="PSA">PSA Birth Certificate No. (if available upon registration)</p>
-              <input type="numeric" class="PSANo form-control" value="${student['psa'] ?? ""}" name="psa">
+              <input type="numeric" class="PSANo form-control" value="${
+                student["psa"] ?? ""
+              }" name="psa">
               <p class="LRN">Learner Reference No. (LRN)</p>
-              <input type="numeric" class="LRNNo form-control" value="${student['lrn'] ?? ""}" name="lrn" minlength="12" />
+              <input type="numeric" class="LRNNo form-control" value="${
+                student["lrn"] ?? ""
+              }" name="lrn" minlength="12" />
           </span>
 
           <br>
           <div id="name">
               <p class="name">Full Name</p>
               <span class='d-flex '>
-                <input type="text" class="lname form-control" name="lastname" value="${student['lastname'] ?? ""}" id="lname" placeholder="Last Name" />
-                <input type="text" class="fname form-control" name="firstname" value="${student['firstname'] ?? ""}" id="fname" placeholder="First Name" />
-                <input type="text" class="mname form-control" name="middlename" value="${student['middlename'] ?? ""}" id="mname" placeholder="Middle Initial">
-                <input type="text" class="extname form-control" name="extname" value="${student['extname'] ?? ""}" id="extname" placeholder="Extension Name e.g. Jr., III (if applicable)">
+                <input type="text" class="lname form-control" name="lastname" value="${
+                  student["lastname"] ?? ""
+                }" id="lname" placeholder="Last Name" />
+                <input type="text" class="fname form-control" name="firstname" value="${
+                  student["firstname"] ?? ""
+                }" id="fname" placeholder="First Name" />
+                <input type="text" class="mname form-control" name="middlename" value="${
+                  student["middlename"] ?? ""
+                }" id="mname" placeholder="Middle Initial">
+                <input type="text" class="extname form-control" name="extname" value="${
+                  student["extname"] ?? ""
+                }" id="extname" placeholder="Extension Name e.g. Jr., III (if applicable)">
               </span
           </div>
           <span class="d-flex">
               <p class="pob">Place of Birth</p>
-              <input type="text" class="place form-control" name="placeofbirth" value="${student['placeofbirth'] ?? ""}" id="placeofbirth">
+              <input type="text" class="place form-control" name="placeofbirth" value="${
+                student["placeofbirth"] ?? ""
+              }" id="placeofbirth">
           </span>
           <span class="d-flex">
               <p class="mothertounge">Mother Tounge</p>
-              <input type="text" class="c form-control" name="mothertongue" value="${student['mothertongue'] ?? ""}" id="mothertongue">
+              <input type="text" class="c form-control" name="mothertongue" value="${
+                student["mothertongue"] ?? ""
+              }" id="mothertongue">
           </span>
           <span class="d-flex">
               <p class="date">Birthdate (dd/mm/yyyy)</p>
-              <input type="date" class="d form-control" name="birthdate" value="${student['birthdate'] ?? ""}" id="date" />
+              <input type="date" class="d form-control" name="birthdate" value="${
+                student["birthdate"] ?? ""
+              }" id="date" />
           </span>
 
 
           <p class="sex">Sex</p>
           <select class="sx form-control" name="sex">
               <option>Choose an option</option>
-              <option name="sex"  ${student['sex'] == "M" ? "selected" : null } id="male" value="M">Male</option>
-              <option name="sex" ${student['sex'] == "F" ? "selected" : null } id="female" value="F">Female</option>
+              <option name="sex"  ${
+                student["sex"] == "M" ? "selected" : ""
+              } id="male" value="M">Male</option>
+              <option name="sex" ${
+                student["sex"] == "F" ? "selected" : ""
+              } id="female" value="F">Female</option>
           </select>
 
           <p class="age">Age</p>
-          <input type="number" class="a form-control" name="age" value="${student['age'] ?? ""}" id="age">
+          <input type="number" class="a form-control" name="age" value="${
+            student["age"] ?? ""
+          }" id="age">
 
           <div class="indi">
               <p>Belonging to any Indigenous Peoples (IP) Community/Indigenous Cultural Community?</p>
           </div>
           <div class="ip">
-              <input type="radio" name="indegenous" class="form-check-input" id="yIP" value="yes" ${student['indegenous'] == "yes" ? "checked" : null }>
+              <input type="radio" name="indegenous" class="form-check-input" id="yIP" value="yes" ${
+                student["indegenous"] == "yes" ? "checked" : ""
+              }>
               <label for="yIP">Yes</label>
-              <input type="radio" name="indegenous" class="form-check-input" id="nIP" value="no"  ${student['indegenous'] == "no" ? "checked" : null }>
+              <input type="radio" name="indegenous" class="form-check-input" id="nIP" value="no"  ${
+                student["indegenous"] == "no" ? "checked" : ""
+              }>
               <label for="nIP">No</label>
           </div>
           <br>
           <div class="specify">
               <label for="specify">If Yes, Please specify:</label>
-              <input type="text" class="spec form-control" name="ipspecify" id="specify" value="${student['ipspecify'] ?? ""}">
+              <input type="text" class="spec form-control" name="ipspecify" id="specify" value="${
+                student["ipspecify"] ?? ""
+              }">
           </div>
 
           <p class="4Ps">Is your family a beneficiary of 4Ps?</p>
           <div class="y4Ps">
-              <input type="radio" name="4ps"  class="form-check-input" id="y4Ps" ${student['4ps'] == "yes" ? "checked" : null } value="yes">
+              <input type="radio" name="4ps"  class="form-check-input" id="y4Ps" ${
+                student["4ps"] == "yes" ? "checked" : ""
+              } value="yes">
               <label for="y4ps">Yes</label>
-              <input type="radio" name="4ps" class="form-check-input" id="n4Ps" ${student['4ps'] == "no" ? "checked" : null } value="no">
+              <input type="radio" name="4ps" class="form-check-input" id="n4Ps" ${
+                student["4ps"] == "no" ? "checked" : ""
+              } value="no">
               <label for="n4Ps">No</label>
           </div>
           <br>
           <label for="idnum">If Yes, write the 4Ps Household ID Number below:</label>
-          <input type="numeric" name="4psID" class="form-control" id="idnum" value="${student['4psID']}">
+          <input type="numeric" name="4psID" class="form-control" id="idnum" value="${
+            student["4psID"]
+          }">
 
           <hr class="j">
           <p class="address"><b>Current Address</b></p>
@@ -265,54 +319,86 @@ function viewRecord(record_id) {
           <br>
           <div class="housenum">
               <label for="housenum">House No./Street</label>
-              <input type="text" name="Chousenum" class="form-control" value="${student['Chousenum']}" id="housenum" />
+              <input type="text" name="Chousenum" class="form-control" value="${
+                student["Chousenum"]
+              }" id="housenum" />
               <label for="streetname">Street Name</label>
-              <input type="text" name="Cstreet" class="form-control" value="${student['Cstreet']}" id="street" />
+              <input type="text" name="Cstreet" class="form-control" value="${
+                student["Cstreet"]
+              }" id="street" />
               <label for="barangay">Barangay</label>
-              <input type="text" name="Cbrgy" class="form-control" value="${student['Cbrgy']}" id="brgy" />
+              <input type="text" name="Cbrgy" class="form-control" value="${
+                student["Cbrgy"]
+              }" id="brgy" />
           </div>
           <br>
           <label for="municipality">Municipality/City</label>
-          <input type="text" name="Ccity" class="form-control" value="${student['Ccity']}" id="city" />
+          <input type="text" name="Ccity" class="form-control" value="${
+            student["Ccity"]
+          }" id="city" />
           <label for="province">Province</label>
-          <input type="text" name="Cprovince"class="form-control"  value="${student['Cprovince']}" id="prov">
+          <input type="text" name="Cprovince"class="form-control"  value="${
+            student["Cprovince"]
+          }" id="prov">
           <label for="country">Country</label>
-          <input type="text" name="Ccountry"class="form-control" value="${student['Ccountry']}" id="country" />
+          <input type="text" name="Ccountry"class="form-control" value="${
+            student["Ccountry"]
+          }" id="country" />
           <br>
           
           <div class="zipcode">
               <label for="zipcode">Zip Code</label>
-              <input type="numeric" name="Czipcode" class="form-control" id="zip" value="${student['Czipcode']}"/>
+              <input type="numeric" name="Czipcode" class="form-control" id="zip" value="${
+                student["Czipcode"]
+              }"/>
           </div>
           <br>
           <br>
           <p class="addr"><b>Permanent Address </b><i>(Same with your current address?)</i></p>
-          <input type="radio" class="ycur form-check-input" name="perma" id="addr" ${student['perma'] == "yes" ? "checked" : null }>
+          <input type="radio" class="ycur form-check-input" name="perma" id="addr" ${
+            student["perma"] == "yes" ? "checked" : ""
+          }>
           <label for="Ycurrent">Yes</label>
-          <input type="radio" class="ycur form-check-input" name="perma" id="addr"  ${student['perma'] == "no" ? "checked" : null }>
+          <input type="radio" class="ycur form-check-input" name="perma" id="addr"  ${
+            student["perma"] == "no" ? "checked" : ""
+          }>
           <label for="Ncurrent">No</label>
           <br>
           <br>
           <!--Dapat di na to pwede mafill up-an kapag yes ang sinelect sa permanent add-->
           <div class="housenum">
               <label for="housenum">House No./Street</label>
-              <input type="text" name="Phousenum"  class="form-control" id="housenum" value="${student['Phousenum']}">
+              <input type="text" name="Phousenum"  class="form-control" id="housenum" value="${
+                student["Phousenum"]
+              }">
               <label for="streetname">Street Name</label>
-              <input type="text" name="Pstreet" id="street"  class="form-control"  value="${student['Pstreet']}">
+              <input type="text" name="Pstreet" id="street"  class="form-control"  value="${
+                student["Pstreet"]
+              }">
               <label for="barangay">Barangay</label>
-              <input type="text" name="Pbrgy" id="brgy"  class="form-control"  value="${student['Pbrgy']}">
+              <input type="text" name="Pbrgy" id="brgy"  class="form-control"  value="${
+                student["Pbrgy"]
+              }">
           </div>
           <br>
           <label for="municipality">Municipality/City</label>
-          <input type="text" name="Pcity" id="city" class="form-control" value="${student['Pcity']}">
+          <input type="text" name="Pcity" id="city" class="form-control" value="${
+            student["Pcity"]
+          }">
           <label for="province">Province</label>
-          <input type="text" name="Pprovince"  class="form-control" id="prov" value="${student['Pprovince']}">
+          <input type="text" name="Pprovince"  class="form-control" id="prov" value="${
+            student["Pprovince"]
+          }">
           <label for="country">Country</label>
-          <input type="text" name="Pcountry" class="form-control" id="country" value="${student['Pcountry']}">
+          <input type="text" name="Pcountry" class="form-control" id="country" value="${
+            student["Pcountry"]
+          }">
           <br>
           <br>
           <label for="zipcode">Zip Code</label>
-          <input type="numeric" name="Pzipcode"  class="form-control" id="zip" value="${student['Pzipcode']}">
+          <input type="numeric" name="Pzipcode"  class="form-control" id="zip" value="${
+            student["Pzipcode"]
+          }">
           <br>
           <br>
 
@@ -323,34 +409,58 @@ function viewRecord(record_id) {
           <div class="faname">
               <p class="name">Father's Name</p>
               <span class="d-flex">
-                <input type="text" name="Flastname"  class="form-control" id="lname" placeholder="Last Name" value="${student['Flastname']}" />
-                <input type="text" name="Ffirstname"  class="form-control" id="fname" placeholder="First Name" value="${student['Ffirstname']}" />
-                <input type="text" name="Fmiddlename"  class="form-control" id="mname" placeholder="Middle Name" value="${student['Ffirstname']}"/>
+                <input type="text" name="Flastname"  class="form-control" id="lname" placeholder="Last Name" value="${
+                  student["Flastname"]
+                }" />
+                <input type="text" name="Ffirstname"  class="form-control" id="fname" placeholder="First Name" value="${
+                  student["Ffirstname"]
+                }" />
+                <input type="text" name="Fmiddlename"  class="form-control" id="mname" placeholder="Middle Name" value="${
+                  student["Ffirstname"]
+                }"/>
               </span>
                 <label for="contact">Contact Number</label>
-                <input type="numeric" name="Fcontact"  class="form-control" id="contact" value="${student['Fcontact']}">
+                <input type="numeric" name="Fcontact"  class="form-control" id="contact" value="${
+                  student["Fcontact"]
+                }">
           </div>
 
           <div id="moname">
               <p class="name">Mother's Maiden Name</p>
               <span class="d-flex">
-                <input type="text" name="Mlastname" class="form-control" id="lname" placeholder="Last Name" value="${student['Mlastname']}" />
-                <input type="text" name="Mfirstname" class="form-control" id="fname" placeholder="First Name" value="${student['Mfirstname']}" />
-                <input type="text" name="Mmiddlename" class="form-control" id="mname" placeholder="Middle Name" value="${student['Mmiddlename']}"/>
+                <input type="text" name="Mlastname" class="form-control" id="lname" placeholder="Last Name" value="${
+                  student["Mlastname"]
+                }" />
+                <input type="text" name="Mfirstname" class="form-control" id="fname" placeholder="First Name" value="${
+                  student["Mfirstname"]
+                }" />
+                <input type="text" name="Mmiddlename" class="form-control" id="mname" placeholder="Middle Name" value="${
+                  student["Mmiddlename"]
+                }"/>
               </span>
               <label for="contact">Contact Number</label>
-              <input type="numeric" name="Mcontact" class="form-control" id="contact" value="${student['Mcontact']}">
+              <input type="numeric" name="Mcontact" class="form-control" id="contact" value="${
+                student["Mcontact"]
+              }">
           </div>
 
           <div id="gname">
               <p class="name">Guardian's Name</p>
               <span class="d-flex">
-                <input type="text" class="plname form-control" name="Glastname" id="lname" placeholder="Last Name"  value="${student['Glastname']}"/>
-                <input type="text" class="pfname form-control" name="Gfirstname" id="fname" placeholder="First Name"  value="${student['Gfirstname']}"/>
-                <input type="text" class="pmname form-control" name="Gmiddlename" id="mname" placeholder="Middle Initial"  value="${student['Gmiddlename']}"/>
+                <input type="text" class="plname form-control" name="Glastname" id="lname" placeholder="Last Name"  value="${
+                  student["Glastname"]
+                }"/>
+                <input type="text" class="pfname form-control" name="Gfirstname" id="fname" placeholder="First Name"  value="${
+                  student["Gfirstname"]
+                }"/>
+                <input type="text" class="pmname form-control" name="Gmiddlename" id="mname" placeholder="Middle Initial"  value="${
+                  student["Gmiddlename"]
+                }"/>
               </span>
               <label for="contact">Contact Number</label>
-              <input type="numeric" class="form-control" name="Gcontact" id="contact"  value="${student['Gcontact']}"/>
+              <input type="numeric" class="form-control" name="Gcontact" id="contact"  value="${
+                student["Gcontact"]
+              }"/>
           </div>
           <br>
           <br>
@@ -359,15 +469,23 @@ function viewRecord(record_id) {
           <hr class="r">
           <br>
           <label for="lastgrd">Last Grade Level Completed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" class="form-control" name="lastgrdlvl" id="lastgrd"  value="${student['lastgrdlvl']}">
+          <input type="text" class="form-control" name="lastgrdlvl" id="lastgrd"  value="${
+            student["lastgrdlvl"]
+          }">
           <label for="lastSY">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last School Year Completed</label>
-          <input type="text" class="form-control" name="lastschoolyr" id="lastSY"  value="${student['lastschoolyr']}">
+          <input type="text" class="form-control" name="lastschoolyr" id="lastSY"  value="${
+            student["lastschoolyr"]
+          }">
           <br>
           <br>
           <label for="lastschool">Last School Attended</label>
-          <input type="text" class="form-control" name="lastschool" id="lastschool"  value="${student['lastschool']}">
+          <input type="text" class="form-control" name="lastschool" id="lastschool"  value="${
+            student["lastschool"]
+          }">
           <label for="schoolid">School ID</label>
-          <input type="numeric" class="form-control" name="schoolid" id="schoolid" value="${student['schoolid']}">
+          <input type="numeric" class="form-control" name="schoolid" id="schoolid" value="${
+            student["schoolid"]
+          }">
           <br>
           <br>
           <hr class="s">
@@ -378,15 +496,23 @@ function viewRecord(record_id) {
               <p class="semester">Semester</p>
               <select class="sem form-control">
                   <option>Choose an option</option>
-                  <option name="semester" ${student['schoolid'] == 'first' ? "selected" : ""} value="first">1st Sem</option>
-                  <option name="semester" ${student['schoolid'] == 'second' ? "selected" : ""} value="second">2nd Sem</option>
+                  <option name="semester" ${
+                    student["schoolid"] == "first" ? "selected" : ""
+                  } value="first">1st Sem</option>
+                  <option name="semester" ${
+                    student["schoolid"] == "second" ? "selected" : ""
+                  } value="second">2nd Sem</option>
               </select>
 
               <div class="track">
                   <label for="track">Track</label>
-                  <input type="text" name="track" id="track" class="form-control" value="${student['track']}">
+                  <input type="text" name="track" id="track" class="form-control" value="${
+                    student["track"]
+                  }">
                   <label for="strand">Strand</label>
-                  <input type="text" name="strand" id="strand" class="form-control" value="${student['strand']}">
+                  <input type="text" name="strand" id="strand" class="form-control" value="${
+                    student["strand"]
+                  }">
               </div>
           </div>
           <hr class="u">
@@ -398,40 +524,56 @@ function viewRecord(record_id) {
           <div class="check d-flex">
           <span class="d-flex flex-column">
             <span  class="d-flex">
-              <input type="checkbox" class="form-check-input" name="modularprint" id="modularp" ${student['modularprint'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="form-check-input" name="modularprint" id="modularp" ${
+                student["modularprint"] == "on" ? "checked" : ""
+              }>
               <label for="modularp">Modular(Print)</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="one form-check-input" name="online" id="online" ${student['online'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="one form-check-input" name="online" id="online" ${
+                student["online"] == "on" ? "checked" : ""
+              }>
               <label for="online" class="one">Online</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="two form-check-input" name="radio" id="radio" ${student['radio'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="two form-check-input" name="radio" id="radio" ${
+                student["radio"] == "on" ? "checked" : ""
+              }>
               <label for="radio" class="two">Radio-Based Instruction</label>
             </span>
             </span>
 
           <span class="d-flex flex-column">
             <span class="d-flex">
-              <input type="checkbox" class="form-check-input" name="blended" id="blended" ${student['blended'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="form-check-input" name="blended" id="blended" ${
+                student["blended"] == "on" ? "checked" : ""
+              }>
               <label for="blended">Blended</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="three form-check-input" name="modulardigital" id="modulard" ${student['modulardigital'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="three form-check-input" name="modulardigital" id="modulard" ${
+                student["modulardigital"] == "on" ? "checked" : ""
+              }>
               <label for="modulard" class="three">Modular(Digital)</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="four form-check-input" name="eductv" id="educationtv"  ${student['eductv'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="four form-check-input" name="eductv" id="educationtv"  ${
+                student["eductv"] == "on" ? "checked" : ""
+              }>
               <label for="educationtv" class="four">Educational Television</label>
             </span >
           </span>
           <span class="d-flex flex-column">
             <span class="d-flex">
-              <input type="checkbox" name="homeschool"  class="form-check-input" id="homeschooling"  ${student['homeschool'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" name="homeschool"  class="form-check-input" id="homeschooling"  ${
+                student["homeschool"] == "on" ? "checked" : ""
+              }>
               <label for="homeschooling">Homeschooling</label>
             </span>
             <span class="d-flex">
-              <input type="checkbox" class="five form-check-input" name="facetoface" id="facetoface"  ${student['facetoface'] == 'on' ? "checked" : ""}>
+              <input type="checkbox" class="five form-check-input" name="facetoface" id="facetoface"  ${
+                student["facetoface"] == "on" ? "checked" : ""
+              }>
               <label for="facetoface" class="five">Face to Face</label>
             </span>
           </span>
@@ -446,10 +588,21 @@ function viewRecord(record_id) {
                   The information herein shall be treated as confidential in compliance with the Data Privacy Act of 2012.</i></p>
       </div>
       </div>
-  </form>`;
-      showModal("View Record", form_content, ["cancel", "yes"], "g", () => {
+  </${role === "A" ? "form" : "div"}>`;
+
+      
+
+      showModal("View Record", form_content, role === "A" ? ["cancel", "update"] : [], "g", () => {
         onSubmit();
       });
+
+      if(role !== "A") {
+        $("div#stud-profile input, div#stud-profile select").each(function(){
+          $(this).prop("disabled", true);
+        })
+
+        $(".pledge, .instruction, .instr, .modal-footer").css("display", "none");
+      }
       // $("#form-container").html(form_content);
       // $("#form-container").removeClass("hide");
     })

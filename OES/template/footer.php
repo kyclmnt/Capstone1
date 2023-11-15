@@ -79,13 +79,13 @@ function load_footer(array $js = [], $show = true)
         
     </script>
     <!-- BOOTSTRAP -->
-    <script src="<?= base_url("assets/bootstrap/js/bootstrap.min.js") ?>"></script>
+    <script src="<?= base_url("assets/libraries/bootstrap/bootstrap.min.js") ?>"></script>
 
     <!-- fontawesome -->
-    <script src="<?= base_url("assets/fontawesome/js/all.min.js") ?>"></script>
+    <script src="<?= base_url("assets/libraries/fontawesome/fontawesome.min.js") ?>"></script>
 
     <!-- datatable -->
-    <script src="<?= base_url("assets/datatable/js/dataTables.dataTables.min.js") ?>"></script>
+    <script src="<?= base_url("assets/libraries/datatable/datatable.min.js") ?>"></script>
 
     <?php foreach ($js as $j) { ?>
         <script src="<?= base_url("assets/js/{$j}.js") ?>"> </script>

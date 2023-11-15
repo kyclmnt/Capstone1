@@ -14,7 +14,8 @@ footer {
   background-color: white !important;
 }
 
-form {
+form,
+div#stud-profile {
   overflow: hidden;
   width: 100%;
 }
@@ -29,11 +30,13 @@ form {
   margin: 0 auto;
 }
 
-form#form-container span {
+form#form-container span,
+div#stud-profile span {
   gap: 1rem;
   padding: 30px;
 }
-form#form-container span > * {
+form#form-container span > *,
+div#stud-profile span > * {
   width: 50%;
 }
 
