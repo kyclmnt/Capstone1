@@ -79,7 +79,7 @@ function load_footer(array $js = [], $show = true)
         
     </script>
     <!-- BOOTSTRAP -->
-    <script src="<?= base_url("assets/libraries/bootstrap/bootstrap.min.js") ?>"></script>
+   
 
     <!-- fontawesome -->
     <script src="<?= base_url("assets/libraries/fontawesome/fontawesome.min.js") ?>"></script>

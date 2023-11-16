@@ -41,7 +41,7 @@ function load_header(String $title = "Document", array $css = [], array $js = []
 
         <!-- BOOTSTRAP -->
         <link href="<?= base_url("assets/libraries/bootstrap/bootstrap.min.css") ?>" rel="stylesheet">
-        <script src="<?= base_url("assets/libraries/bootstrap/bootstrap.min.js") ?>"></script>
+        <script src="<?= base_url("assets/libraries/bootstrap/bootstrap.min.js") ?>" defer></script>
 
         <!-- fontawesome -->
         <link rel="stylesheet" href="<?= base_url("assets/libraries/fontawesome/fontawesome.min.css") ?>">
@@ -66,23 +66,22 @@ function load_header(String $title = "Document", array $css = [], array $js = []
         <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"> -->
         <link rel="stylesheet" href="<?= base_url("assets/libraries/datatable/datatable.min.css") ?>">
         <script src="<?= base_url("assets/libraries/datatable/datatable.min.js") ?>" defer></script>
-        
+
 
         <!-- Global JS files -->
         <script src="<?php echo base_url("assets/js/main.js") ?>"></script>
 
-    
+
         <?= set_js($js); ?>
 
         <!-- Custom JS -->
         <script>
             const base_url = "<?= BASE_PATH ?>";
             console.log(base_url);
-
-            </script>
+        </script>
         <?php
         if (isset($_SESSION['role'])) {
-            ?>
+        ?>
             <script>
                 const uid = "<?= $_SESSION['uid'] ?>";
                 let role = "<?= $_SESSION['role'] ?>";
@@ -94,29 +93,30 @@ function load_header(String $title = "Document", array $css = [], array $js = []
         }
         ?>
     </head>
-    <?php if($show) {?>
-    <header>
-        <div id="logo-holder ">
-            <img src="logo.png" alt="Andres Bonifacio Integrated School Logo" style="width:50px;height:50px" ;>
-            Andres Bonifacio Integrated School
-        </div>
-        <nav class="nav">
-            <?php
-            if (isset($_SESSION["role"])) {
-            ?>
-                <?php echo $_SESSION['role'] == "A" ? '<a class="nav-link" id="dashboard" href="dashboard.php">Dashboard</a>' : ''; ?>
-                <a class="nav-link" id="students" href="student.php">Students</a>
-                <a class="nav-link" id="settings" href="settings.php">Settings</a>
-                <a class="nav-link" href="<?= BASE_PATH; ?>api/logout.php">Logout</a>
-            <?php
-            } else {
-            ?>
-                <a class="nav-link" href="login.php">Login</a>
-            <?php }
-            ?>
-        </nav>
-    </header>
+    <?php if ($show) { ?>
+        <header>
+            <div id="logo-holder ">
+                <img src="logo.png" alt="Andres Bonifacio Integrated School Logo" style="width:50px;height:50px" ;>
+                Andres Bonifacio Integrated School
+            </div>
+            <nav class="nav">
+                <?php
+                if (isset($_SESSION["role"])) {
+                ?>
+                    <?php echo $_SESSION['role'] == "A" ? '<a class="nav-link" id="dashboard" href="dashboard.php">Dashboard</a>' : ''; ?>
+                    <a class="nav-link" id="students" href="student.php">Students</a>
+                    <a class="nav-link" id="settings" href="settings.php">Settings</a>
+                    <a class="nav-link" href="<?= BASE_PATH; ?>api/logout.php">Logout</a>
+                <?php
+                } else {
+                ?>
+                    <a class="nav-link" href="login.php">Login</a>
+                <?php }
+                ?>
+            </nav>
+        </header>
     <?php } ?>
+
     <body>
 
     <?php } ?>

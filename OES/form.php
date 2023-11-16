@@ -25,7 +25,7 @@ require "./template/head.php";
 load_header("ABIS | Register",["main","form", "home" ,"footer"],["settings"]);
 ?>
     <main>
-        <form action="form.php" method="post">
+        <form action="form.php" method="post" class="card">
             <h3>
                 Registration Form
             </h3>
@@ -49,7 +49,7 @@ load_header("ABIS | Register",["main","form", "home" ,"footer"],["settings"]);
                 <label for=""><i class="fa-solid fa-check-double" style="color: black;"></i></label>
                 <input type="password" placeholder="Confirm your password">
             </span> -->
-            <button id="reg" type="submit" name="submit" value = "submit">
+            <button id="reg" type="submit" name="submit" class="btn" value = "submit">
                 Register
             </button>
             <!-- <button id="login">
