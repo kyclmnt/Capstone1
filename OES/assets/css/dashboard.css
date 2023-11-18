@@ -1,11 +1,19 @@
 
-#charts {
-    height: 100%; 
+section {
     width: 100%;
 }
-#charts > * {
-    width: 50%;
+canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
+#bar-chart, 
+#pie-chart{
+    width: 60vw;
+}
+
+/* #charts > * {
+    width: 50%;
+} */
 @media only screen and (max-width: 768px) { 
     #charts {
         flex-wrap: wrap;
@@ -25,38 +33,25 @@
 
 #total-enrolles > div.card {
     height: fit-content;
-    background-color: #c08080;
+    /* background-color: #c08080; */
     display: flex;
     flex-direction: column;
-    padding-block: 50px;
-    padding-inline: 40px;
-    border-radius: 20px;
+    padding-block: 3rem;
+    padding-inline: 5rem;
+    /* border-radius: 20px; */
     align-items: center;
 }
-#pie-chart {
- 
-    display: flex;
-    justify-content: center;
-}
+
 #pie-chart > div.chart {
     width: 50%;
     height: 100%;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 20px;
+    
 }
 #pie-chart > div.chart canvas {
     height: clamp(150px, 50%, 200px);
     aspect-ratio: 1;
     flex-grow: 0;
 }
-
-
-#bar-chart > canvas {
-    height: 50%;
-    width: 80%;
-    flex-grow: 0;
+#total-enrollees {
+    display: inline-block;
 }

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var last_time_updated = document.querySelector(".time-frame");
+  var last_time_updated = $(".time-frame");
   const enrollees_cont = document.getElementById("enrollees-chart");
   const enrollees_by_gender_cont = document.getElementById(
     "enrollees-gender-chart"
@@ -10,17 +10,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let enrollees_chart = new ChartJS(enrollees_cont, {
     type: "bar",
-    options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: "bottom" },
+        title: {
+          display: true,
+          text: "Enrolment Distribution Across Courses",
+          font: {
+            size: 18,
+          },
+        },
+      },
+    },
   });
   let enrollees_by_gender_chart = new ChartJS(enrollees_by_gender_cont, {
     type: "pie",
-    options: { responsive: true, plugins: { legend: { position: "bottom" }, tooltip : { callbacks : { label : transformText } } } },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: transformText } },
+        title: {
+          display: true,
+          text: 'Enrollment Distribution by Gender',
+          font: {
+              size: 18
+          }
+      }
+      },
+    },
   });
   let enrollees_by_grdlvl_chart = new ChartJS(enrollees_by_grdlvl_cont, {
     type: "pie",
-    options: { responsive: true, plugins: { legend: { position: "bottom" }, tooltip : { callbacks : { label : transformText } } } },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: transformText } },
+        title: {
+          display: true,
+          text: 'Enrollment Distribution by Grade Level',
+          font: {
+              size: 18
+          }
+      }
+      },
+    },
   });
-//   console.log($("header a.nav-link"));
+  //   console.log($("header a.nav-link"));
   $("header a.nav-link").each(function (i) {
     $(this).removeClass("active");
   });
@@ -78,14 +116,14 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(() => {
     fetch_last_enrollee(
       base_url + "/api/last_data_inserted.php",
-      document.querySelector(".time-frame")
+      $(".time-frame")
     );
   }, 1000);
 
   setInterval(() => {
     fetch_total_enrollee(
       base_url + "/api/number_of_enrollees.php",
-      document.querySelector("#total-enrollees")
+      $("#total-enrollees-container")
     );
   }, 1000);
 
@@ -130,12 +168,20 @@ document.addEventListener("DOMContentLoaded", function () {
         __date.date = date.getDate();
         __date.year = date.getFullYear();
         __date.hour =
-          date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+          date.getHours() > 12
+            ? date.getHours() - 12
+            : date.getHours() == 0
+            ? 12
+            : date.getHours();
         __date.minutes = date.getMinutes();
         __date.time_convention = date.getHours() < 12 ? "AM" : "PM";
 
-        const text = `Enrollees as of ${__date.hour}:${__date.minutes} ${__date.time_convention} ${__date.month} ${__date.date}, ${__date.year}`;
-        if (text != last_time_updated.innerText) element.innerText = text;
+        const text = `Enrollees as of ${__date.hour
+          .toString()
+          .padStart(2, "0")}:${__date.minutes.toString().padStart(2, "0")} ${
+          __date.time_convention
+        } ${__date.month} ${__date.date}, ${__date.year}`;
+        if (text != last_time_updated.text()) element.html(text);
       })
       .catch((err) => {
         console.log(err);
@@ -153,7 +199,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((data) => {
         const total = data.data[0]["total"];
-        element.innerText = total;
+        console.log($(`#${element.attr("id")} :first-child`).text(), total)
+        
+        if( $(`#${element.attr("id")} :last-child`).text() !== total) { 
+          $(`#${element.attr("id")} :last-child`).text(total);
+        }
       })
       .catch((error) => console.log(error));
   }
