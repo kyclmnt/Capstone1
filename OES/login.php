@@ -12,7 +12,7 @@ load_header("ABIS | Login", ['login'], [], false);
 
 <main class="d-flex flex-wrap">
     <div id="one">
-    <img src="logo.png">
+    <a href="home.php"><img src="logo.png"></a>
         <h1>
             ANDRES BONIFACIO INTEGRATED SCHOOL
         </h1>
@@ -40,7 +40,7 @@ load_header("ABIS | Login", ['login'], [], false);
             </button>
         </form>
         <a href="home.php" id="btn-fquestion">
-            <i class="fa-solid fa-share"></i>
+            <i class="fa-solid fa-home"></i>
         </a>
     </div>
 </main>
